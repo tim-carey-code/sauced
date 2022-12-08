@@ -1,0 +1,2 @@
+module HotsaucesHelper
+end

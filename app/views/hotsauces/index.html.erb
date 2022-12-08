@@ -1,0 +1,11 @@
+<div class="text-center">
+  <h1>Hotsauces</h1>
+  <%= link_to "New hotsauce", new_hotsauce_path, class: "btn btn-primary" %>
+  <hr>
+  <div id="hotsauces">
+    <% @hotsauces.each do |hotsauce| %>
+      <%= render hotsauce %>
+    <% end %>
+  </div>
+
+</div>
