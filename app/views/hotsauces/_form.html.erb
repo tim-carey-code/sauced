@@ -36,14 +36,14 @@
       <%= form.label :location, style: "display: block" %>
       <%= form.text_field :location, class: "form-control" %>
     </div>
-  </div>
 
-  <div class="m-2">
-    <%= form.label "Upload image of hotsauce bottle" %>
-    <p><%= form.file_field :sauce_bottle_image, class: "m-2" %></p>
-  </div>
+    <div class="m-2">
+      <%= form.label "Upload image of hotsauce bottle" %>
+      <p><%= form.file_field :sauce_bottle_image, class: "m-2" %></p>
+    </div>
 
-  <div>
-    <%= form.submit nil, class: "btn btn-primary mt-2" %>
+    <div>
+      <%= form.submit nil, class: "btn btn-primary mt-2" %>
+    </div>
   </div>
 <% end %>
