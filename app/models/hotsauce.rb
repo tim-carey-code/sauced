@@ -3,4 +3,5 @@ class Hotsauce < ApplicationRecord
   validates :name, :description, :review, :location, presence: true
 
   has_one_attached :sauce_bottle_image
+  has_rich_text :review
 end
