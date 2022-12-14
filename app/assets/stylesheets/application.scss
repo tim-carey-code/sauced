@@ -7,3 +7,15 @@
   height: 330px;
   width: 100%;
 }
+
+.avatar {
+  border-radius: 100%;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.dropdown-menu {
+  top: 100%;
+  left: -48px !important;
+}
