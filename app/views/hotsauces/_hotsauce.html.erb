@@ -1,41 +1,13 @@
-<!-- <div class="border mx-3" id="<%= dom_id hotsauce %>">
-  <span class="fs-3">
-    <%= hotsauce.name %>
-  </span>
-
-  <p class="text-muted">
-    <%= hotsauce.description %>
-  </p>
-
-
-  <p>
-    <strong>Review:</strong>
-    <%= hotsauce.review %>
-  </p>
-
-  <p>
-    <strong>Where can you find this hot suace?</strong>
-  </p>
-  <p>
-    <%= hotsauce.location %>
-  </p>
-
-  <p>
-    <strong>Rating:</strong>
-    <%= hotsauce.rating %>
-  </p>
-
-</div> -->
-
-<div class="d-flex flex-column justify-content-center align-items-center m-2">
+<div class="d-flex justify-content-center align-items-center m-2">
   <div class="card" style="width: 18rem;">
     <% if hotsauce.sauce_bottle_image.attached? %>
       <%= image_tag hotsauce.sauce_bottle_image, class: "card-img-top" %>
     <% end %>
     <div class="card-body">
       <h5 class="card-title"><%= hotsauce.name %></h5>
-      <span class="text-center text-muted"><%= hotsauce.description %></span>
-      <p class="card-text"><%= hotsauce.review %></p>
+      <small class="text-center text-muted"><%= hotsauce.description %></small>
+      <hr>
+      <p class="card-text fs-5"><%= hotsauce.review %></p>
       <p><%= hotsauce.rating %></p>
       <%= link_to "Show #{hotsauce.name}", hotsauce, class: "btn btn-primary" %>
     </div>

@@ -1,9 +1,17 @@
-<div class="text-center">
-  <%= render @hotsauce %>
-
-  <div class="d-flex flex-column justify-content-center align-items-center">
-    <%= link_to "Edit this Hotsauce", edit_hotsauce_path(@hotsauce), class: "btn btn-primary m-2" %>
-    <%= link_to "Back to Hotsauces", hotsauces_path, class: "btn btn-secondary m-2" %>
-    <%= button_to "Delete This Hotsauce", @hotsauce, method: :delete, class: "btn btn-danger" %>
+<div class="d-flex text-center flex-column justify-content-center align-items-center m-2">
+  <div class="card" style="width: 18rem;">
+    <% if @hotsauce.sauce_bottle_image.attached? %>
+      <%= image_tag @hotsauce.sauce_bottle_image, class: "card-img-top" %>
+    <% end %>
+    <div class="card-body">
+      <h5 class="card-title"><%= @hotsauce.name %></h5>
+      <small class="text-center text-muted"><%= @hotsauce.description %></small>
+      <hr>
+      <p class="card-text fs-5"><%= @hotsauce.review %></p>
+      <p><%= @hotsauce.rating %></p>
+      <%= link_to "Edit this hotsauce", edit_hotsauce_path(@hotsauce), class: "btn btn-primary m-2" %>
+      <%= link_to "Back to hotsauces", hotsauces_path, class: "btn btn-secondary m-2" %>
+      <%= button_to "Delete This hotsauce", @hotsauce, method: :delete, class: "btn btn-danger" %>
+    </div>
   </div>
 </div>
