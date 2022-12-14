@@ -5,6 +5,7 @@ ruby "3.1.2"
 
 gem "aws-sdk-s3", require: false
 gem "bootsnap", require: false
+gem "bootstrap", "~> 5.2.2"
 gem "devise"
 gem "image_processing", "~> 1.2"
 gem "importmap-rails"
@@ -13,12 +14,12 @@ gem "pg", "~> 1.4"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.4"
 gem "redis", "~> 4.0"
-gem "sprockets-rails"
+gem "sassc-rails"
+gem "sprockets-rails", "~> 3.4", ">= 3.4.2"
 gem "sqlite3", "~> 1.4"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
-gem "bootstrap", "~> 5.2.2"
 gem "jquery-rails"
 
 group :development, :test do
