@@ -2,10 +2,11 @@
   <h1>Hotsauces</h1>
   <%= link_to "New hotsauce", new_hotsauce_path, class: "btn btn-primary" %>
   <hr>
-  <div id="hotsauces">
-    <% @hotsauces.each do |hotsauce| %>
-      <%= render hotsauce %>
-    <% end %>
+  <div id="hotsauces" class="container text-center">
+    <div class="row row-cols-auto">
+      <% @hotsauces.each do |hotsauce| %>
+        <div class="col"><%= render hotsauce %></div>
+      <% end %>
+    </div>
   </div>
-
 </div>

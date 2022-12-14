@@ -1,7 +1,7 @@
-<div class="d-flex justify-content-center align-items-center m-2">
-  <div class="card" style="width: 18rem;">
+<div class="d-flex justify-content-center align-items-center">
+  <div class="card mb-2" style="width: 18rem;">
     <% if hotsauce.sauce_bottle_image.attached? %>
-      <%= image_tag hotsauce.sauce_bottle_image, class: "card-img-top" %>
+      <%= image_tag hotsauce.sauce_bottle_image, class: "sauce-image" %>
     <% end %>
     <div class="card-body">
       <h5 class="card-title"><%= hotsauce.name %></h5>
