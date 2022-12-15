@@ -144,6 +144,7 @@ GEM
     importmap-rails (1.1.5)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
+    interactor (3.1.2)
     io-console (0.5.11)
     irb (1.6.1)
       reline (>= 0.3.0)
@@ -307,6 +308,7 @@ DEPENDENCIES
   devise
   image_processing (~> 1.2)
   importmap-rails
+  interactor (~> 3.0)
   jbuilder
   jquery-rails
   pg (~> 1.4)
