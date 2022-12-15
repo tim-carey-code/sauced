@@ -23,9 +23,13 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "pry-byebug"
 end
 
 group :development do
+  gem "annotate"
+  gem "better_errors"
+  gem "binding_of_caller"
   gem "web-console"
 end
 
