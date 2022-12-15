@@ -17,7 +17,7 @@ class HotsaucesTest < ApplicationSystemTestCase
     fill_in "Description", with: @hotsauce.description
     fill_in "Location", with: @hotsauce.location
     fill_in "Name", with: @hotsauce.name
-    fill_in "Rating", with: @hotsauce.rating
+    select "4", from: "hotsauce_rating"
     fill_in "Review", with: @hotsauce.review
     click_on "Create Hotsauce"
 
@@ -32,7 +32,7 @@ class HotsaucesTest < ApplicationSystemTestCase
     fill_in "Description", with: @hotsauce.description
     fill_in "Location", with: @hotsauce.location
     fill_in "Name", with: @hotsauce.name
-    fill_in "Rating", with: @hotsauce.rating
+    select "2", from: "hotsauce_rating"
     fill_in "Review", with: @hotsauce.review
     click_on "Update Hotsauce"
 
@@ -42,8 +42,8 @@ class HotsaucesTest < ApplicationSystemTestCase
 
   test "should destroy Hotsauce" do
     visit hotsauce_url(@hotsauce)
-    click_on "Destroy this hotsauce", match: :first
+    click_on "Delete This hotsauce", match: :first
 
-    assert_text "Hotsauce was successfully destroyed"
+    assert_text "Hotsauce was successfully destroyed."
   end
 end
