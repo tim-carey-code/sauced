@@ -13,15 +13,15 @@
 #
 
 one:
-  name: MyString
-  description: MyString
+  name: Hot Sauce 1
+  description: Super hot
   rating: 1
-  review: MyText
-  location: MyString
+  review: Some review text here
+  location: Some location here
 
 two:
-  name: MyString
-  description: MyString
+  name: Hot Sauce 2
+  description: Super hot
   rating: 1
-  review: MyText
-  location: MyString
+  review: Some review text here
+  location: Some location here
