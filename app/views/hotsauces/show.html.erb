@@ -4,10 +4,10 @@
       <%= image_tag @hotsauce.sauce_bottle_image, class: "card-img-top" %>
     <% end %>
     <div class="card-body">
-      <h5 class="card-title"><%= @hotsauce.name %></h5>
+      <h5 class="card-title fs-1"><%= @hotsauce.name %></h5>
       <small class="text-center text-muted"><%= @hotsauce.description %></small>
       <hr>
-      <p class="card-text fs-5"><%= @hotsauce.review %></p>
+      <p class="card-text"><%= @hotsauce.review %></p>
       <p><%= @hotsauce.rating %></p>
       <%= link_to "Edit this hotsauce", edit_hotsauce_path(@hotsauce), class: "btn btn-primary m-2" %>
       <%= link_to "Back to hotsauces", hotsauces_path, class: "btn btn-secondary m-2" %>
