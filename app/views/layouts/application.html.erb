@@ -11,7 +11,7 @@
   </head>
 
   <body>
-  <%= render partial: "layouts/navbar" %>
+  <%= render "layouts/navbar" unless turbo_native_app? %>
   <%= render "layouts/alerts" %>
     <%= yield %>
   </body>
