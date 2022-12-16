@@ -11,7 +11,8 @@
       <p><%= @hotsauce.rating %></p>
       <%= link_to "Edit this hotsauce", edit_hotsauce_path(@hotsauce), class: "btn btn-primary m-2" %>
       <%= link_to "Back to hotsauces", hotsauces_path, class: "btn btn-secondary m-2" %>
-      <%= button_to "Delete This hotsauce", @hotsauce, method: :delete, class: "btn btn-danger" %>
+      <%= link_to "Delete this hotsauce", "#", data: { bs_toggle: "modal", bs_target: "#modal" }, class: "btn btn-danger" %>
+      <%= render ModalComponent.new(modal_title: "Are you sure you want to delete this hotsauce?", modal_body: "Once you delete this hotsauce it will be gone forever!", primary_button_name: "Delete this hotsauce", btn_style: "danger", resource: @hotsauce, btn_method: "delete") %>
     </div>
   </div>
 </div>

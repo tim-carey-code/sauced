@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def referrer_or_root
+    request.referrer || root_path
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :avatar])
   end
