@@ -2,7 +2,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     result = Users::Create.call(
       params: user_params,
-      user: @user
     )
 
     if result.success?
