@@ -5,6 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     )
 
     if result.success?
+      sign_in(:user, result.user)
       flash[:success] = "Account created successfully!"
       redirect_to(root_path)
     else
