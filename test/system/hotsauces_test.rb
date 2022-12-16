@@ -7,7 +7,7 @@ class HotsaucesTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit hotsauces_url
-    assert_selector "h1", text: "Hotsauces"
+    assert_selector "h1", text: "Hot Sauces"
   end
 
   test "should create hotsauce" do
@@ -17,7 +17,7 @@ class HotsaucesTest < ApplicationSystemTestCase
     fill_in "Description", with: @hotsauce.description
     fill_in "Location", with: @hotsauce.location
     fill_in "Name", with: @hotsauce.name
-    fill_in "Rating", with: @hotsauce.rating
+    select "4", from: "hotsauce_rating"
     fill_in "Review", with: @hotsauce.review
     click_on "Create Hotsauce"
 
@@ -32,18 +32,11 @@ class HotsaucesTest < ApplicationSystemTestCase
     fill_in "Description", with: @hotsauce.description
     fill_in "Location", with: @hotsauce.location
     fill_in "Name", with: @hotsauce.name
-    fill_in "Rating", with: @hotsauce.rating
+    select "2", from: "hotsauce_rating"
     fill_in "Review", with: @hotsauce.review
     click_on "Update Hotsauce"
 
     assert_text "Hotsauce was successfully updated"
     click_on "Back"
-  end
-
-  test "should destroy Hotsauce" do
-    visit hotsauce_url(@hotsauce)
-    click_on "Destroy this hotsauce", match: :first
-
-    assert_text "Hotsauce was successfully destroyed"
   end
 end

@@ -21,12 +21,4 @@ class User < ApplicationRecord
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_limit: [60, 60]
   end
-
-  after_create_commit :add_default_avatar, on: [:create, :update]
-
-  def add_default_avatar
-    unless avatar.attached?
-      avatar.attach(io: File.open(Rails.root.join("app", "assets", "images", "default_avatar.png")), filename: "default_avatar.png", content_type: "image/png")
-    end
-  end
 end

@@ -144,6 +144,7 @@ GEM
     importmap-rails (1.1.5)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
+    interactor (3.1.2)
     io-console (0.5.11)
     irb (1.6.1)
       reline (>= 0.3.0)
@@ -270,6 +271,10 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    view_component (2.79.0)
+      activesupport (>= 5.0.0, < 8.0)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -307,6 +312,7 @@ DEPENDENCIES
   devise
   image_processing (~> 1.2)
   importmap-rails
+  interactor (~> 3.0)
   jbuilder
   jquery-rails
   pg (~> 1.4)
@@ -320,6 +326,7 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
+  view_component
   web-console
   webdrivers
 
