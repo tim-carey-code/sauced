@@ -4,10 +4,10 @@
       Login
     </div>
     <div class="card-body">
-      <%= form_for(resource, as: resource_name, data: { turbo: false }, url: session_path(resource_name)) do |f| %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), remote: true) do |f| %>
         <div class="field">
           <%= f.label :username, class: "form-label" %><br/>
-          <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control form-control-sm" %>
+          <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control form-control-sm", autocapitalize: "none" %>
         </div>
 
         <div class="field">
