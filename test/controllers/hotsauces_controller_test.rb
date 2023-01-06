@@ -17,7 +17,7 @@ class HotsaucesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create hotsauce" do
     assert_difference("Hotsauce.count") do
-      post hotsauces_url, params: { hotsauce: { description: @hotsauce.description, location: @hotsauce.location, name: @hotsauce.name, rating: @hotsauce.rating, review: @hotsauce.review } }
+      post hotsauces_url, params: { hotsauce: { description: @hotsauce.description, location: @hotsauce.location, name: @hotsauce.name, rating: @hotsauce.rating, review: @hotsauce.review, category: @hotsauce.category } }
     end
 
     assert_redirected_to hotsauce_url(Hotsauce.last)
