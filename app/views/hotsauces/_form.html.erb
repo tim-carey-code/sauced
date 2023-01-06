@@ -23,6 +23,11 @@
     </div>
 
     <div>
+      <%= form.label :category, style: "display: block", class: "form-label" %>
+      <%= form.select :category, options_for_select([["Hot Sauce", "Hot Sauce"], ["Salsa", "Salsa"], ["BBQ Sauce", "BBQ Sauce"], ["Dry Rub", "Dry Rub"], ["Other", "Other"]], selected: hotsauce.category) %>
+    </div>
+
+    <div>
       <%= form.label :rating, style: "display: block", class: "form-label" %>
       <%= form.select :rating, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]], selected: hotsauce.rating) %>
     </div>
