@@ -1,25 +1,20 @@
 class HotsaucesController < ApplicationController
   before_action :set_hotsauce, only: %i[ show edit update destroy ]
 
-  # GET /hotsauces or /hotsauces.json
   def index
     @hotsauces = Hotsauce.all.order(created_at: :desc)
   end
 
-  # GET /hotsauces/1 or /hotsauces/1.json
   def show
   end
 
-  # GET /hotsauces/new
   def new
     @hotsauce = Hotsauce.new
   end
 
-  # GET /hotsauces/1/edit
   def edit
   end
 
-  # POST /hotsauces or /hotsauces.json
   def create
     @hotsauce = Hotsauce.new(hotsauce_params)
 
@@ -34,7 +29,6 @@ class HotsaucesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /hotsauces/1 or /hotsauces/1.json
   def update
     respond_to do |format|
       if @hotsauce.update(hotsauce_params)
@@ -47,7 +41,6 @@ class HotsaucesController < ApplicationController
     end
   end
 
-  # DELETE /hotsauces/1 or /hotsauces/1.json
   def destroy
     @hotsauce.destroy
 
@@ -58,12 +51,10 @@ class HotsaucesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_hotsauce
       @hotsauce = Hotsauce.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def hotsauce_params
       params.require(:hotsauce).permit(:name, :description, :rating, :review, :location, :category, :sauce_bottle_image)
     end
