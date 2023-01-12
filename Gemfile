@@ -7,6 +7,7 @@ gem "aws-sdk-s3", require: false
 gem "bootsnap", require: false
 gem "bootstrap", "~> 5.2.2"
 gem "devise"
+gem "honeybadger"
 gem "image_processing", "~> 1.2"
 gem "importmap-rails"
 gem "interactor", "~> 3.0"
