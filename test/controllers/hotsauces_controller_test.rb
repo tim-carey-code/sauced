@@ -3,6 +3,7 @@ require "test_helper"
 class HotsaucesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @hotsauce = hotsauces(:one)
+    sign_in users(:tim)
   end
 
   test "should get index" do
@@ -17,7 +18,7 @@ class HotsaucesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create hotsauce" do
     assert_difference("Hotsauce.count") do
-      post hotsauces_url, params: { hotsauce: { description: @hotsauce.description, location: @hotsauce.location, name: @hotsauce.name, rating: @hotsauce.rating, review: @hotsauce.review, category: @hotsauce.category } }
+      post hotsauces_url, params: { hotsauce: { description: @hotsauce.description, name: @hotsauce.name, category: @hotsauce.category } }
     end
 
     assert_redirected_to hotsauce_url(Hotsauce.last)
@@ -34,7 +35,7 @@ class HotsaucesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update hotsauce" do
-    patch hotsauce_url(@hotsauce), params: { hotsauce: { description: @hotsauce.description, location: @hotsauce.location, name: @hotsauce.name, rating: @hotsauce.rating, review: @hotsauce.review } }
+    patch hotsauce_url(@hotsauce), params: { hotsauce: { description: @hotsauce.description, name: @hotsauce.name } }
     assert_redirected_to hotsauce_url(@hotsauce)
   end
 

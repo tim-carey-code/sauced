@@ -10,7 +10,7 @@
 #  updated_at  :datetime         not null
 #
 class Hotsauce < ApplicationRecord
-  validates :name, :description, :review, :location, presence: true
+  validates :name, :description, presence: true
   validates :description, length: { maximum: 75 }
 
   has_one_attached :sauce_bottle_image do |attachable|

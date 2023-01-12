@@ -56,6 +56,6 @@ class HotsaucesController < ApplicationController
     end
 
     def hotsauce_params
-      params.require(:hotsauce).permit(:name, :description, :rating, :review, :location, :category, :sauce_bottle_image)
+      params.require(:hotsauce).permit(:name, :description, :category, :sauce_bottle_image)
     end
 end

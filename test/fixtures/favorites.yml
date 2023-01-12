@@ -10,9 +10,6 @@
 #
 
 one:
-  user_id: 1
-  hotsauce_id: 1
+  user: tim
+  hotsauce: one
 
-two:
-  user_id: 1
-  hotsauce_id: 1

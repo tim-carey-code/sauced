@@ -13,15 +13,9 @@
 one:
   name: Hot Sauce 1
   description: Super hot
-  rating: 1
-  review: Some review text here
-  location: Some location here
   category: Hot Sauce
 
 two:
   name: Hot Sauce 2
   description: Super hot
-  rating: 1
-  review: Some review text here
-  location: Some location here
   category: Hot Sauce

@@ -11,11 +11,5 @@
 #
 
 one:
-  user_id: 1
-  feedable_id: 1
-  feedable_type: MyString
-
-two:
-  user_id: 1
-  feedable_id: 1
-  feedable_type: MyString
+  user: tim
+  feedable: one (Favorite)
