@@ -17,6 +17,7 @@
       <% else %>
         <%= button_to "Add to favorites", favorites_path(hotsauce_id: @hotsauce.id), class: "btn btn-success", data: { turbo_method: :post } %>
       <% end %>
+      <%= link_to "Check In", new_checkin_path(@hotsauce), class: "btn btn-success" %>
       <%= link_to "Edit this hotsauce", edit_hotsauce_path(@hotsauce), class: "btn btn-primary m-2" %>
       <%= link_to "Back to hotsauces", hotsauces_path, class: "btn btn-secondary m-2" %>
       <%= link_to "Delete this hotsauce", "#", data: { bs_toggle: "modal", bs_target: "##{dom_id(@hotsauce)}" }, class: "btn btn-danger" %>

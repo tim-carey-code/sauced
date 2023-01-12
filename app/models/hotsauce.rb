@@ -21,5 +21,6 @@ class Hotsauce < ApplicationRecord
     attachable.variant :card, resize_to_limit: [ 300, 400 ]
   end
 
+  has_many :checkins, dependent: :destroy
   has_many :favorites, dependent: :destroy
 end

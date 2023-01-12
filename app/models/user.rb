@@ -26,5 +26,6 @@ class User < ApplicationRecord
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_limit: [60, 60]
   end
+  has_many :checkins, dependent: :destroy
   has_many :favorites, dependent: :destroy
 end
