@@ -6,7 +6,6 @@
 #  category    :string           not null
 #  description :string
 #  name        :string
-#  review      :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
