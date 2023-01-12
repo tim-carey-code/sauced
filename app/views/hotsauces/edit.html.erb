@@ -1,11 +1,11 @@
-<div class="text-center d-flex justify-content-center align-items-center">
-  <div class="card" style="width: 18rem;">
-    <div class="card-header">
-      <h1>Editing Hotsauce</h1>
-    </div>
-    <div class="card-body">
+<div class="d-flex text-center text-light justify-content-center align-items-center">
+  <div class="card border border-white border-2 mb-2" style="width: 18rem;">
+    <div class="card-body hot-sauce-card">
+      <h5 class="card-title fs-1">Editing Sauce</h5>
       <%= render "form", hotsauce: @hotsauce %>
+
       <br>
+
       <div class="text-center">
         <%= link_to "Show this hotsauce", @hotsauce, class: "btn btn-secondary my-2" %>
         <%= link_to "Back to hotsauces", hotsauces_path, class: "btn btn-secondary" %>
