@@ -1,9 +1,10 @@
-<div class="d-flex justify-content-center align-items-center text-center container">
-  <div class="card" style="width: 18rem;">
-    <div class="card-header">
-      Login
-    </div>
-    <div class="card-body">
+<div class="text-light d-flex justify-content-center align-items-center text-center container">
+  <div class="card border border-white border-2" style="width: 18rem;">
+
+    <div class="card-body hot-sauce-card">
+      <div class="card-header">
+        <h3>Login</h3>
+      </div>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), remote: true) do |f| %>
         <div class="field">
           <%= f.label :username, class: "form-label" %><br/>

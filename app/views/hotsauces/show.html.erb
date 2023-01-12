@@ -1,14 +1,14 @@
-<div class="d-flex text-center flex-column justify-content-center align-items-center m-2">
-  <div class="card" style="width: 18rem;">
+<div class="d-flex text-center text-light flex-column justify-content-center align-items-center m-2">
+  <div class="card border border-white border-2" style="width: 18rem;">
     <% if @hotsauce.sauce_bottle_image.attached? %>
       <%= image_tag @hotsauce.sauce_bottle_image, class: "card-img-top" %>
     <% end %>
-    <div class="card-body">
+    <div class="card-body hot-sauce-card">
       <h5 class="card-title fs-1"><%= @hotsauce.name %></h5>
       <div>
         <span class="badge bg-primary"><%= @hotsauce.category %></span>
       </div>
-      <small class="text-center text-muted"><%= @hotsauce.description %></small>
+      <small style="color: lime;"  class="text-center"><%= @hotsauce.description %></small>
       <hr>
       <p class="card-text"><%= @hotsauce.review %></p>
       <p><%= @hotsauce.rating %></p>

@@ -1,9 +1,9 @@
-<div class="text-center d-flex justify-content-center align-items-center">
-  <div class="card" style="width: 18rem;">
-    <div class="card-header">
-      Sign Up
-    </div>
-    <div class="card-body">
+<div class="text-center text-light d-flex justify-content-center align-items-center">
+  <div class="card border border-white border-2" style="width: 18rem;">
+    <div class="card-body hot-sauce-card">
+      <div class="card-header">
+        <h3>Sign Up</h3>
+      </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), remote: true) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
