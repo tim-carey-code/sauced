@@ -4,12 +4,12 @@ class FavoritesController < ApplicationController
 
   def create
     find_hotsauce(key: :hotsauce_id)
-    @favorite = Favorite.new(user: current_user, hotsauce: @hotsauce)
-    
-    if @favorite.save
+    result = CreateFavorite.call(user: current_user, hotsauce: @hotsauce)
+
+    if result.success?
       flash[:success] = "Favorited #{@hotsauce.name}"
     else
-      flash[:error] = "Something went wrong."
+      flash[:error] = result.message
     end
     redirect_to hotsauce_path(@hotsauce)
   end

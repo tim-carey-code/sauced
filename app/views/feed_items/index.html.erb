@@ -1,0 +1,6 @@
+<h4 class="display-4 text-light text-center">Sauced Feed</h4>
+
+<% @feed_items.map do |feed_item| %>
+  <%= render partial: "feed_items/#{feed_item.feedable_type.downcase}", locals: { feed_item: feed_item } %>
+<% end %>
+
