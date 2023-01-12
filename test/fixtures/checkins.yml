@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: checkins
+#
+#  id          :bigint           not null, primary key
+#  location    :string
+#  rating      :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  hotsauce_id :integer          not null
+#  user_id     :integer          not null
+#
+
+one:
+  user_id: 1
+  hotsauce_id: 1
+  rating: 1
+  location: MyString
+
+two:
+  user_id: 1
+  hotsauce_id: 1
+  rating: 1
+  location: MyString

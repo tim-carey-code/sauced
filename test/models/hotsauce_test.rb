@@ -3,11 +3,9 @@
 # Table name: hotsauces
 #
 #  id          :bigint           not null, primary key
-#  name        :string
+#  category    :string           not null
 #  description :string
-#  rating      :integer
-#  review      :text
-#  location    :string
+#  name        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

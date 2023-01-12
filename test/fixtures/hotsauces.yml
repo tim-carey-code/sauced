@@ -3,11 +3,9 @@
 # Table name: hotsauces
 #
 #  id          :bigint           not null, primary key
-#  name        :string
+#  category    :string           not null
 #  description :string
-#  rating      :integer
-#  review      :text
-#  location    :string
+#  name        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -15,15 +13,9 @@
 one:
   name: Hot Sauce 1
   description: Super hot
-  rating: 1
-  review: Some review text here
-  location: Some location here
   category: Hot Sauce
 
 two:
   name: Hot Sauce 2
   description: Super hot
-  rating: 1
-  review: Some review text here
-  location: Some location here
   category: Hot Sauce

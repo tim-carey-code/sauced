@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+@import "./actiontext.css";
 
 body {
   touch-action: pan-y;
@@ -25,17 +26,10 @@ body {
   left: -48px !important;
 }
 
-.hot-sauce-card {
+.bg-peppers {
   background-image: url(asset_path('peppers.jpeg'));
-  background-size: 100%;
-}
-
-p {
-  color: azure;
-}
-
-strong {
-  color: azure;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .btn-primary {
@@ -44,7 +38,6 @@ strong {
 }
 
 .card-title {
-  color: azure;
   border-color: black;
 }
 
@@ -52,25 +45,19 @@ strong {
   border-color: black;
 }
 
-.main-layout {
+.bg-flames {
   background-image: url(asset_path('flames.jpeg'));
   background-size: 100%;
 }
 
-.navbar {
-  background-image: url(asset_path('flames.jpeg'));
+.bg-100 {
+  background-size: 100%;
+}
+
+.bg-75 {
   background-size: 75%;
 }
 
-.tagline {
-  color: azure;
-}
-
-h1 {
-  color: azure;
-}
-
-body {
-  background-image: url(asset_path('flames.jpeg'));
-  background-size: 100%;
+.bg-50 {
+  background-size: 50%;
 }

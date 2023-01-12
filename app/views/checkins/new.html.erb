@@ -1,0 +1,27 @@
+<h4 class="display-4 text-white text-center">Check into <%= @hotsauce.name %></h4>
+
+<div class="row">
+  <div class="col">
+
+    <div class="card border-white border-2 m-2">
+      <div class="card-body">
+        <%= form_with(model: @checkin) do |f| %>
+          <div class="my-2">
+            <%= f.label :rating, class: "form-label" %>
+            <%= f.number_field :rating, class: "form-control" %>
+          </div>
+
+          <%= f.text_field :location, placeholder: "Location (optional)", class: "form-control" %>
+
+          <%= f.label :review, "Review (optional)", class: "form-label my-2" %>
+          <%= f.rich_text_area :review %>
+
+          <div class="d-grid gap-2 my-3">
+            <%= f.submit "Check in", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

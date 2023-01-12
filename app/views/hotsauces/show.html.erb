@@ -3,19 +3,30 @@
     <% if @hotsauce.sauce_bottle_image.attached? %>
       <%= image_tag @hotsauce.sauce_bottle_image, class: "card-img-top" %>
     <% end %>
-    <div class="card-body hot-sauce-card">
+    <div class="card-body bg-peppers">
       <h5 class="card-title fs-1"><%= @hotsauce.name %></h5>
       <div>
         <span class="badge bg-primary"><%= @hotsauce.category %></span>
       </div>
       <small style="color: lime;"  class="text-center"><%= @hotsauce.description %></small>
+      <p>
+        Average Rating: <strong><%= @hotsauce.rating %></strong>
+      </p>
       <hr>
-      <p class="card-text"><%= @hotsauce.review %></p>
-      <p><%= @hotsauce.rating %></p>
-      <%= link_to "Edit this hotsauce", edit_hotsauce_path(@hotsauce), class: "btn btn-primary m-2" %>
-      <%= link_to "Back to hotsauces", hotsauces_path, class: "btn btn-secondary m-2" %>
-      <%= link_to "Delete this hotsauce", "#", data: { bs_toggle: "modal", bs_target: "##{dom_id(@hotsauce)}" }, class: "btn btn-danger" %>
-      <%= render ModalComponent.new(modal_title: "Are you sure you want to delete this hotsauce?", modal_body: "Once you delete this hotsauce it will be gone forever!", primary_button_name: "Delete this hotsauce", btn_style: "danger", resource: @hotsauce, btn_method: "delete") %>
+
+      <div class="d-grid gap-2">
+        <%= link_to "Check In", new_checkin_path(@hotsauce), class: "btn btn-success" %>
+
+        <% if is_favorited?(user: current_user, hotsauce: @hotsauce) %>
+          <%= link_to "Remove from favorites", favorite_path(favorite_for(user: current_user, hotsauce: @hotsauce)), class: "btn btn-warning", data: { turbo_method: :delete } %>
+        <% else %>
+          <%= link_to "Add to favorites", favorites_path(hotsauce_id: @hotsauce.id), class: "btn btn-success", data: { turbo_method: :post } %>
+        <% end %>
+
+        <%= link_to "Edit this hotsauce", edit_hotsauce_path(@hotsauce), class: "btn btn-primary" %>
+        <%= link_to "Delete this hotsauce", "#", data: { bs_toggle: "modal", bs_target: "##{dom_id(@hotsauce)}" }, class: "btn btn-danger" %>
+        <%= render ModalComponent.new(modal_title: "Are you sure you want to delete this hotsauce?", modal_body: "Once you delete this hotsauce it will be gone forever!", primary_button_name: "Delete this hotsauce", btn_style: "danger", resource: @hotsauce, btn_method: "delete") %>
+      </div>
     </div>
   </div>
 </div>

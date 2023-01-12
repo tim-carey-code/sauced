@@ -1,0 +1,36 @@
+<h1 class="display-1 text-white">My favorites</h1>
+
+<% current_user.favorites.map do |favorite| %>
+  <div class="row">
+    <div class="col">
+
+      <div class="card border text-light border-white border-2 m-2">
+        <div class="card-body bg-peppers">
+    
+          <div class="row">
+            <div class="col-4">
+              <% if favorite.hotsauce.sauce_bottle_image.attached? %>
+                <%= image_tag favorite.hotsauce.sauce_bottle_image, class: "img-thumbnail" %>
+              <% else %>
+                <%= image_tag "ketchup_bottle.png", class: "img-thumbnail" %>
+              <% end %>
+            </div>
+            
+            <div class="col-6">
+              <h5 class="card-title fs-1"><%= favorite.hotsauce.name %></h5>
+              <span class="badge bg-primary"><%= favorite.hotsauce.category %></span>
+            </div>
+          </div>
+    
+          <div class="row mt-3">
+            <div class="col">
+              <%= link_to "Remove from favorites", favorite_path(favorite), class: "btn btn-danger", data: { turbo_method: :delete } %>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+
+    </div>
+  </div>
+<% end %>

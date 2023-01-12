@@ -19,7 +19,7 @@ class HotsaucesController < ApplicationController
     @hotsauce = Hotsauce.new(hotsauce_params)
 
     respond_to do |format|
-      if @hotsauce.save
+      if @hotsauce.save && current_user.favorites.create!(hotsauce_id: @hotsauce.id)
         format.html { redirect_to hotsauce_url(@hotsauce), notice: "Hotsauce was successfully created." }
         format.json { render :show, status: :created, location: @hotsauce }
       else
@@ -56,6 +56,6 @@ class HotsaucesController < ApplicationController
     end
 
     def hotsauce_params
-      params.require(:hotsauce).permit(:name, :description, :rating, :review, :location, :category, :sauce_bottle_image)
+      params.require(:hotsauce).permit(:name, :description, :category, :sauce_bottle_image)
     end
 end
