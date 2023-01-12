@@ -25,9 +25,10 @@ body {
   left: -48px !important;
 }
 
-.hot-sauce-card {
+.bg-peppers {
   background-image: url(asset_path('peppers.jpeg'));
-  background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 p {
@@ -52,14 +53,21 @@ strong {
   border-color: black;
 }
 
-.main-layout {
+.bg-flames {
   background-image: url(asset_path('flames.jpeg'));
   background-size: 100%;
 }
 
-.navbar {
-  background-image: url(asset_path('flames.jpeg'));
+.bg-100 {
+  background-size: 100%;
+}
+
+.bg-75 {
   background-size: 75%;
+}
+
+.bg-50 {
+  background-size: 50%;
 }
 
 .tagline {
@@ -68,9 +76,4 @@ strong {
 
 h1 {
   color: azure;
-}
-
-body {
-  background-image: url(asset_path('flames.jpeg'));
-  background-size: 100%;
 }
