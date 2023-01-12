@@ -9,6 +9,7 @@
 #  user_id     :integer          not null
 #
 class Favorite < ApplicationRecord
+  has_many :feed_items, dependent: :destroy, as: :feedable
   belongs_to :hotsauce
   belongs_to :user
 end
