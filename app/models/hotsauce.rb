@@ -5,15 +5,12 @@
 #  id          :bigint           not null, primary key
 #  category    :string           not null
 #  description :string
-#  location    :string
 #  name        :string
-#  rating      :integer
 #  review      :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 class Hotsauce < ApplicationRecord
-  validates :rating, :inclusion => 1..5, presence: true
   validates :name, :description, :review, :location, presence: true
   validates :description, length: { maximum: 75 }
 
@@ -23,4 +20,13 @@ class Hotsauce < ApplicationRecord
 
   has_many :checkins, dependent: :destroy
   has_many :favorites, dependent: :destroy
+
+  def rating
+    ratings = checkins.map(&:rating)
+    if ratings.count < 1
+      "No ratings yet"
+    else
+      (ratings.sum / ratings.count).to_f
+    end
+  end
 end
