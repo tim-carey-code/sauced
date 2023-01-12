@@ -15,6 +15,7 @@ class Hotsauce < ApplicationRecord
 
   has_one_attached :sauce_bottle_image do |attachable|
     attachable.variant :card, resize_to_limit: [ 300, 400 ]
+    attachable.variant :medium, resize_to_limit: [ 1024, 768]
   end
 
   has_many :checkins, dependent: :destroy

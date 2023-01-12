@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center align-items-center">
   <div class="card border border-white border-2 mb-2" style="width: 18rem;">
     <% if hotsauce.sauce_bottle_image.attached? %>
-      <%= image_tag hotsauce.sauce_bottle_image, class: "sauce-image" %>
+      <%= image_tag hotsauce.sauce_bottle_image.variant(:medium), class: "sauce-image" %>
     <% end %>
     <div class="card-body bg-peppers">
       <h5 class="card-title fs-1"><%= hotsauce.name %></h5>
