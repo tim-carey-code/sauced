@@ -17,10 +17,10 @@ class HotsaucesController < ApplicationController
   end
 
   def create
-    @hotsauce = Hotsauce.new(hotsauce_params)
-
+    result = CreateHotSauce.call(user: current_user, params: hotsauce_params)
+    @hotsauce = result.hotsauce
     respond_to do |format|
-      if @hotsauce.save && current_user.favorites.create!(hotsauce_id: @hotsauce.id)
+      if result.success?
         format.html { redirect_to hotsauce_url(@hotsauce), notice: "Hotsauce was successfully created." }
         format.json { render :show, status: :created, location: @hotsauce }
       else
