@@ -12,6 +12,11 @@
       <hr>
       <p class="card-text"><%= @hotsauce.review %></p>
       <p><%= @hotsauce.rating %></p>
+      <% if is_favorited?(user: current_user, hotsauce: @hotsauce) %>
+        <%= link_to "Remove from favorites", favorite_path(favorite_for(user: current_user, hotsauce: @hotsauce)), class: "btn btn-danger", data: { turbo_method: :delete } %>
+      <% else %>
+        <%= button_to "Add to favorites", favorites_path(hotsauce_id: @hotsauce.id), class: "btn btn-success", data: { turbo_method: :post } %>
+      <% end %>
       <%= link_to "Edit this hotsauce", edit_hotsauce_path(@hotsauce), class: "btn btn-primary m-2" %>
       <%= link_to "Back to hotsauces", hotsauces_path, class: "btn btn-secondary m-2" %>
       <%= link_to "Delete this hotsauce", "#", data: { bs_toggle: "modal", bs_target: "##{dom_id(@hotsauce)}" }, class: "btn btn-danger" %>
