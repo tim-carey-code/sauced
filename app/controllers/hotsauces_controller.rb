@@ -19,7 +19,7 @@ class HotsaucesController < ApplicationController
     @hotsauce = Hotsauce.new(hotsauce_params)
 
     respond_to do |format|
-      if @hotsauce.save
+      if @hotsauce.save && current_user.favorites.create!(hotsauce_id: @hotsauce.id)
         format.html { redirect_to hotsauce_url(@hotsauce), notice: "Hotsauce was successfully created." }
         format.json { render :show, status: :created, location: @hotsauce }
       else
