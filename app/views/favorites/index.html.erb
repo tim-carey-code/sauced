@@ -1,4 +1,10 @@
-<h1 class="display-1 text-white">My favorites</h1>
+
+<% content_for :title do %>
+  My favorites
+<% end %>
+<% if !turbo_native_app? %>
+  <h1 class="display-1 text-white">My favorites</h1>
+<% end %>
 
 <% current_user.favorites.map do |favorite| %>
   <div class="row">
