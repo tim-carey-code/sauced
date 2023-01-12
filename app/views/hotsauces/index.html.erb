@@ -1,34 +1,40 @@
+<% content_for :title do %>
+  Hot Sauces
+<% end %>
+
+<% if !turbo_native_app? %>
   <h4 class="display-4 text-center text-light">Hot Sauces</h4>
+<% end %>
 
-  <div class="d-grid gap-2 my-3">
-    <%= link_to "New hotsauce", new_hotsauce_path, class: "btn btn-primary" %>
-  </div>
+<div class="d-grid gap-2 my-3">
+  <%= link_to "New hotsauce", new_hotsauce_path, class: "btn btn-primary" %>
+</div>
 
-  <div id="hotsauces">
-    <ul class="list-group list-group-flush">
-      <% @hotsauces.each do |hotsauce| %>
-        <%= link_to hotsauce_path(hotsauce), class: "list-group-item list-group-item-action" do %>
+<div id="hotsauces">
+  <ul class="list-group list-group-flush">
+    <% @hotsauces.each do |hotsauce| %>
+      <%= link_to hotsauce_path(hotsauce), class: "list-group-item list-group-item-action" do %>
 
-          <div class="row">
-            <div class="col-4">
-              <% if hotsauce.sauce_bottle_image.attached? %>
-                <%= image_tag hotsauce.sauce_bottle_image, class: "img-thumbnail" %>
-              <% else %>
-                <%= image_tag "ketchup_bottle.png", class: "img-thumbnail" %>
-              <% end %>
-            </div>
-
-            <div class="col-6">
-              <h5 class="card-title text-dark"><%= hotsauce.name %></h5>
-              <span class="badge bg-primary"><%= hotsauce.category %></span>
-              <br />
-              Rating: <%= hotsauce.rating %>
-              <br />
-              Checkins: <%= hotsauce.checkins.count %>
-            </div>
+        <div class="row">
+          <div class="col-4">
+            <% if hotsauce.sauce_bottle_image.attached? %>
+              <%= image_tag hotsauce.sauce_bottle_image, class: "img-thumbnail" %>
+            <% else %>
+              <%= image_tag "ketchup_bottle.png", class: "img-thumbnail" %>
+            <% end %>
           </div>
 
-        <% end %>
+          <div class="col-6">
+            <h5 class="card-title text-dark"><%= hotsauce.name %></h5>
+            <span class="badge bg-primary"><%= hotsauce.category %></span>
+            <br />
+            Rating: <%= hotsauce.rating %>
+            <br />
+            Checkins: <%= hotsauce.checkins.count %>
+          </div>
+        </div>
+
       <% end %>
-    </ul>
-  </div>
+    <% end %>
+  </ul>
+</div>

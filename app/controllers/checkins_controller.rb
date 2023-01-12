@@ -1,4 +1,6 @@
 class CheckinsController < ApplicationController
+  before_action :authenticate_user!
+  
   def new
     find_hotsauce
     @checkin = Checkin.new
