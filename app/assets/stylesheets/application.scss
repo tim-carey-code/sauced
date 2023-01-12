@@ -26,7 +26,7 @@ body {
 }
 
 .hot-sauce-card {
-  background-image: url(assets/peppers.jpeg);
+  background-image: url(asset_path('peppers.jpeg'));
   background-size: 100%;
 }
 
@@ -53,12 +53,12 @@ strong {
 }
 
 .main-layout {
-  background-image: url(assets/flames.jpeg);
+  background-image: url(asset_path('flames.jpeg'));
   background-size: 100%;
 }
 
 .navbar {
-  background-image: url(assets/flames.jpeg);
+  background-image: url(asset_path('flames.jpeg'));
   background-size: 75%;
 }
 
@@ -71,6 +71,6 @@ h1 {
 }
 
 body {
-  background-image: url(assets/flames.jpeg);
+  background-image: url(asset_path('flames.jpeg'));
   background-size: 100%;
 }
