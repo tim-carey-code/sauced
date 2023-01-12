@@ -1,20 +1,16 @@
 # == Schema Information
 #
-# Table name: hotsauces
+# Table name: favorites
 #
 #  id          :bigint           not null, primary key
-#  category    :string           not null
-#  description :string
-#  location    :string
-#  name        :string
-#  rating      :integer
-#  review      :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  hotsauce_id :integer          not null
+#  user_id     :integer          not null
 #
 require "test_helper"
 
-class HotsauceTest < ActiveSupport::TestCase
+class FavoriteTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

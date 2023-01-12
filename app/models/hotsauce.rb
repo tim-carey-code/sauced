@@ -3,11 +3,12 @@
 # Table name: hotsauces
 #
 #  id          :bigint           not null, primary key
-#  name        :string
+#  category    :string           not null
 #  description :string
+#  location    :string
+#  name        :string
 #  rating      :integer
 #  review      :text
-#  location    :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -19,4 +20,6 @@ class Hotsauce < ApplicationRecord
   has_one_attached :sauce_bottle_image do |attachable|
     attachable.variant :card, resize_to_limit: [ 300, 400 ]
   end
+
+  has_many :favorites, dependent: :destroy
 end
