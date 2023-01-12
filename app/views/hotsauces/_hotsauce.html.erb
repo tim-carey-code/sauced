@@ -3,7 +3,7 @@
     <% if hotsauce.sauce_bottle_image.attached? %>
       <%= image_tag hotsauce.sauce_bottle_image, class: "sauce-image" %>
     <% end %>
-    <div class="card-body">
+    <div class="card-body hot-sauce-card">
       <h5 class="card-title fs-1"><%= hotsauce.name %></h5>
       <div>
         <span class="badge bg-primary"><%= hotsauce.category %></span>
