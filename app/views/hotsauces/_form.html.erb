@@ -27,21 +27,6 @@
       <%= form.select :category, options_for_select([["Hot Sauce", "Hot Sauce"], ["Salsa", "Salsa"], ["BBQ Sauce", "BBQ Sauce"], ["Dry Rub", "Dry Rub"], ["Other", "Other"]], selected: hotsauce.category) %>
     </div>
 
-    <div>
-      <%= form.label :rating, style: "display: block", class: "form-label" %>
-      <%= form.select :rating, options_for_select([["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]], selected: hotsauce.rating) %>
-    </div>
-
-    <div>
-      <%= form.label :review, style: "display: block", class: "form-label" %>
-      <%= form.text_area :review, class: "form-control" %>
-    </div>
-
-    <div>
-      <%= form.label :location, style: "display: block", class: "form-label" %>
-      <%= form.text_field :location, class: "form-control" %>
-    </div>
-
     <div class="m-2">
       <%= form.label "Upload image of hotsauce bottle", class: "form-label" %>
       <p><%= form.file_field :sauce_bottle_image, class: "m-2" %></p>
