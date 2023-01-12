@@ -8,7 +8,7 @@
           <%= feed_item.user.username %> added <%= link_to feed_item.feedable.hotsauce.name, hotsauce_path(feed_item.feedable.hotsauce) %> to their favorites
         </p>
         <% if feed_item.feedable.hotsauce.sauce_bottle_image.attached? %>
-          <%= image_tag feed_item.feedable.hotsauce.sauce_bottle_image, class: "img-fluid" %>
+          <%= image_tag feed_item.feedable.hotsauce.sauce_bottle_image.variant(:medium), class: "img-fluid" %>
         <% else %>
           <%= image_tag "ketchup_bottle.png", class: "img-fluid" %>
         <% end %>

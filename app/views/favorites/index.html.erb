@@ -16,7 +16,7 @@
           <div class="row">
             <div class="col-4">
               <% if favorite.hotsauce.sauce_bottle_image.attached? %>
-                <%= image_tag favorite.hotsauce.sauce_bottle_image, class: "img-thumbnail" %>
+                <%= image_tag favorite.hotsauce.sauce_bottle_image.variant(:medium), class: "img-thumbnail" %>
               <% else %>
                 <%= image_tag "ketchup_bottle.png", class: "img-thumbnail" %>
               <% end %>

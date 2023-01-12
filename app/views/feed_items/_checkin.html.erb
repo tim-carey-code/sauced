@@ -7,7 +7,7 @@
         <p class="lead">
           <%= feed_item.user.username %> checked into <%= link_to feed_item.feedable.hotsauce.name, hotsauce_path(feed_item.feedable.hotsauce) %>
         </p>
-        <%= image_tag feed_item.feedable.hotsauce.sauce_bottle_image, class: "img-fluid" %>
+        <%= image_tag feed_item.feedable.hotsauce.sauce_bottle_image.variant(:medium), class: "img-fluid" %>
         <% if feed_item.feedable.review.present? %>
           <%= feed_item.feedable.review %>
         <% end %>
