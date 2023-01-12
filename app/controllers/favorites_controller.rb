@@ -23,7 +23,7 @@ class FavoritesController < ApplicationController
     else
       flash[:error] = "Something went wrong."
     end
-    redirect_to hotsauce_path(@hotsauce)
+    redirect_back fallback_location: hotsauce_path(@hotsauce)
   end
 
   private
