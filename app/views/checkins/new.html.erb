@@ -3,8 +3,8 @@
 <div class="row">
   <div class="col">
 
-    <div class="card border text-light border-white border-2 m-2">
-      <div class="card-body bg-peppers">
+    <div class="card border-white border-2 m-2">
+      <div class="card-body">
         <%= form_with(model: @checkin) do |f| %>
           <div class="my-2">
             <%= f.label :rating, class: "form-label" %>
@@ -12,6 +12,9 @@
           </div>
 
           <%= f.text_field :location, placeholder: "Location (optional)", class: "form-control" %>
+
+          <%= f.label :review, "Review (optional)", class: "form-label my-2" %>
+          <%= f.rich_text_area :review %>
 
           <div class="d-grid gap-2 my-3">
             <%= f.submit "Check in", class: "btn btn-primary" %>

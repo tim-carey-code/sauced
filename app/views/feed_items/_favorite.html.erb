@@ -4,10 +4,10 @@
 
     <div class="card border text-light border-white border-2 m-2">
       <div class="card-body bg-peppers">
-        <%= image_tag feed_item.feedable.hotsauce.sauce_bottle_image, class: "img-fluid" %>
         <p class="lead">
-          <%= feed_item.user.username %> added <%= link_to feed_item.feedable.hotsauce.name, hotsauce_path(feed_item.feedable.hotsauce) %> to their favorites.
+          <%= feed_item.user.username %> added <%= link_to feed_item.feedable.hotsauce.name, hotsauce_path(feed_item.feedable.hotsauce) %> to their favorites
         </p>
+        <%= image_tag feed_item.feedable.hotsauce.sauce_bottle_image, class: "img-fluid" %>
         <small>
           <%= time_ago_in_words(feed_item.created_at) %> ago
         </small>

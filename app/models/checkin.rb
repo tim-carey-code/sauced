@@ -16,4 +16,6 @@ class Checkin < ApplicationRecord
   
   belongs_to :hotsauce
   belongs_to :user
+
+  has_rich_text :review
 end

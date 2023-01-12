@@ -20,7 +20,7 @@ class CheckinsController < ApplicationController
   private
 
   def checkin_params
-    params.require(:checkin).permit(:rating, :location)
+    params.require(:checkin).permit(:rating, :location, :review)
   end
 
   def find_hotsauce
