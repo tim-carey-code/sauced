@@ -1,7 +1,7 @@
 <% if user_signed_in? && current_user.likes?(checkin) %>
-  <%= link_to "Unlike", checkin_like_path(checkin), method: :delete, remote: true %>
+  <%= link_to "Unlike", checkin_like_path(checkin),  data: { turbo_method: :delete } %>
 <% else %>
-  <%= link_to "Like", checkin_like_path(checkin), data:{ turbo: false, method: :post, remote: true } %>
+  <%= link_to "Like", checkin_like_path(checkin), data: { turbo_method: :post } %>
 <% end %>
 
 <%= checkin.likes.count %>
