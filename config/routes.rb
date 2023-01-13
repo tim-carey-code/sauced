@@ -8,5 +8,10 @@ Rails.application.routes.draw do
       resources :checkins, only: [:new, :create]
     end
   end
+
+  resources :checkins do
+    resource :like, module: :checkins
+  end
+  
   root "feed_items#index"
 end
