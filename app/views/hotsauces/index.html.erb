@@ -30,8 +30,18 @@
             <br />
             Rating: <%= hotsauce.rating %>
             <br />
+            <% if hotsauce.has_rating? %>
+              <p>
+                <%= hotsauce.stars %>
+              </p>
+            <% else %>
+              <p>
+                <%= "No stars..." %>
+              </p>
+            <% end %>
             Checkins: <%= hotsauce.checkins.count %>
           </div>
+          <br />
         </div>
 
       <% end %>

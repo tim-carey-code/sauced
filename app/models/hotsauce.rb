@@ -29,4 +29,21 @@ class Hotsauce < ApplicationRecord
       (ratings.sum / ratings.count).to_f
     end
   end
+
+  def stars
+    if rating == "No ratings yet"
+      "No stars..."
+    else
+      return "⭐️" * rating.to_i
+    end
+  end
+
+  def has_rating?
+    ratings = checkins.map(&:rating)
+    if ratings.count < 1
+      false
+    else
+      true
+    end
+  end
 end

@@ -12,6 +12,15 @@
       <hr>
       <p class="card-text fw-semibold"><%= hotsauce.review %></p>
       <p><%= hotsauce.rating %></p>
+      <% if hotsauce.has_rating? %>
+        <p>
+          <%= hotsauce.stars %>
+        </p>
+      <% else %>
+        <p>
+          <%= "No stars..." %>
+        </p>
+      <% end %>
       <%= link_to "Show #{hotsauce.name}", hotsauce, class: "btn btn-primary" %>
     </div>
   </div>
