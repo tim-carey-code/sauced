@@ -1,5 +1,5 @@
 class AddUserIdToHotsauces < ActiveRecord::Migration[7.0]
   def change
-    add_column :hotsauces, :user_id, :integer, null: false
+    add_column :hotsauces, :user_id, :integer
   end
 end
