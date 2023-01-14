@@ -17,6 +17,7 @@
         <small>
           <%= time_ago_in_words(feed_item.created_at) %> ago
         </small>
+        <p id="checkin_<%= feed_item.feedable.id %>_likes"><%= render partial: "checkins/likes", locals: {checkin: feed_item.feedable} %></p>
       </div>
     </div>
 

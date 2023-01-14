@@ -31,4 +31,14 @@ class User < ApplicationRecord
   has_many :checkins, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :hotsauces, dependent: :destroy
+  has_many :likes, dependent: :destroy
+
+  def likes?(checkin)
+    checkin.likes.where(user_id: id).any?
+  end
+
+  def avatar_url
+    hash = Digest::MD5.hexdigest(email)
+    "http://www.gravatar.com/avatar/#{hash}"
+  end
 end
