@@ -25,7 +25,10 @@ class User < ApplicationRecord
 
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_limit: [60, 60]
+    attachable.variant :profile_card, resize_to_limit: [100, 200]
   end
+
   has_many :checkins, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :hotsauces, dependent: :destroy
 end

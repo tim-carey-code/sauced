@@ -5,6 +5,7 @@ class SaveHotSauce
 
   def call
     @hotsauce = Hotsauce.new(params)
+    @hotsauce.user_id = user.id
 
     if @hotsauce.save
       context.hotsauce = @hotsauce

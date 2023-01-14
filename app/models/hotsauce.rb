@@ -8,6 +8,7 @@
 #  name        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  user_id     :integer          not null
 #
 class Hotsauce < ApplicationRecord
   validates :name, :description, presence: true
@@ -20,6 +21,8 @@ class Hotsauce < ApplicationRecord
 
   has_many :checkins, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_one :user
+  belongs_to :user
 
   def rating
     ratings = checkins.map(&:rating)
