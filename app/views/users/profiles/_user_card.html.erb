@@ -1,0 +1,31 @@
+<div class="card text-bg-dark row">
+  <%= image_tag "bg_peppers_2.jpg", class: "img-fluid bg-peppers-2" %>
+  <div class="text-center card-img-overlay">
+    <div class="grid">
+      <div class="user-stats">
+        <p>Check-ins</p>
+        <strong><%= @user.checkins.count %></strong>
+      </div>
+      <div>
+        <p><%= @user.username %></p>
+        <%= image_tag @user.avatar.variant(:profile_card), class: "rounded-circle" %>
+        <% if @user == current_user %>
+          <%= link_to edit_user_registration_path do %>
+            <div class="position-relative">
+              <div class="edit-profile">
+                <i class="pencil-icon bi bi-pencil"></i>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="user-stats">
+        <p>Favorites</p>
+        <strong><%= @user.favorites.count %></strong>
+      </div>
+    </div>
+    <div>
+      <small class="text-center">Joined <%= pretty_date(@user.created_at) %></small>
+    </div>
+  </div>
+</div>

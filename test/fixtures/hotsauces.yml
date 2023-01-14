@@ -8,14 +8,17 @@
 #  name        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  user_id     :integer          not null
 #
 
 one:
   name: Hot Sauce 1
   description: Super hot
   category: Hot Sauce
+  user: tim
 
 two:
   name: Hot Sauce 2
   description: Super hot
   category: Hot Sauce
+  user: tim

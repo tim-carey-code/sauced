@@ -19,6 +19,7 @@ class HotsaucesController < ApplicationController
   def create
     result = CreateHotSauce.call(user: current_user, params: hotsauce_params)
     @hotsauce = result.hotsauce
+
     respond_to do |format|
       if result.success?
         format.html { redirect_to hotsauce_url(@hotsauce), notice: "Hotsauce was successfully created." }
@@ -57,6 +58,6 @@ class HotsaucesController < ApplicationController
     end
 
     def hotsauce_params
-      params.require(:hotsauce).permit(:name, :description, :category, :sauce_bottle_image)
+      params.require(:hotsauce).permit(:name, :description, :category, :sauce_bottle_image, :user_id)
     end
 end
