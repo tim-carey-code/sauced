@@ -14,7 +14,7 @@
       <p><%= hotsauce.rating %></p>
       <% if hotsauce.has_rating? %>
         <p>
-          <%= hotsauce.stars %>
+          <sl-rating readonly label="Rating" precision="0.25" value="<%= hotsauce.rating %>"></sl-rating>
         </p>
       <% else %>
         <p>

@@ -4,7 +4,7 @@
 #
 #  id          :bigint           not null, primary key
 #  location    :string
-#  rating      :integer          not null
+#  rating      :float            not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  hotsauce_id :integer          not null
