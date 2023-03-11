@@ -15,8 +15,8 @@ class Hotsauce < ApplicationRecord
   validates :description, length: { maximum: 75 }
 
   has_one_attached :sauce_bottle_image do |attachable|
-    attachable.variant :card, resize_to_limit: [ 300, 400 ]
-    attachable.variant :medium, resize_to_limit: [ 1024, 768]
+    attachable.variant :card, resize_to_limit: [300, 400]
+    attachable.variant :medium, resize_to_limit: [1024, 768]
   end
 
   has_many :checkins, dependent: :destroy
@@ -29,15 +29,7 @@ class Hotsauce < ApplicationRecord
     if ratings.count < 1
       "No ratings yet"
     else
-      (ratings.sum / ratings.count).to_f
-    end
-  end
-
-  def stars
-    if rating == "No ratings yet"
-      "No stars..."
-    else
-      return "⭐️" * rating.to_i
+      (ratings.sum / ratings.count).to_f.floor(1)
     end
   end
 
