@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'home/index'
 
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
     resource :like, module: :checkins
   end
   
-  root "feed_items#index"
+  root "home#index"
 
   get "/users/:id/profile", to: "users/profiles#index", as: "user_profile"
 end
