@@ -44,6 +44,11 @@ body {
   border-color: maroon;
 }
 
+.btn-outline-light-custom:hover {
+  background: #d9d9d9;
+  color: black !important;
+}
+
 .card-title {
   border-color: black;
 }
@@ -54,7 +59,8 @@ body {
 
 .bg-flames {
   background-image: url(asset_path('flames.jpeg'));
-  background-size: 100%;
+  background-size: cover;
+  background-position: center;
 }
 
 .bg-100 {
@@ -92,4 +98,8 @@ body {
   left: 13px;
   bottom: 6px;
   font-size: 25px;
+}
+
+.sauced-text-logo {
+  filter: grayscale(100%) invert(100%);
 }
