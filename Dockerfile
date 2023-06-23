@@ -9,10 +9,13 @@ LABEL fly_launch_runtime="rails"
 # Rails app lives here
 WORKDIR /rails
 
+ARG RAILS_MASTER_KEY
+
 # Set production environment
 ENV RAILS_ENV="production" \
     BUNDLE_WITHOUT="development:test" \
     BUNDLE_DEPLOYMENT="1"
+    RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
 
 # Update gems and bundler
 RUN gem update --system --no-document && \
