@@ -14,9 +14,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def update
+    @user = User.find(current_user.id)
+    if update_resource(@user, account_update_params)
+      flash[:notice] = "Account updated successfully!"
+      redirect_to(user_profile_path(@user))
+    else
+      flash[:alert] = "Unable to update account. Please review errors."
+      redirect_to(referrer_or_root)
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation, :avatar)
+    params.require(:user).permit(:username, :email, :password, :current_password, :password_confirmation, :avatar)
   end
 end
