@@ -9,7 +9,7 @@
   <%= checkin.likes.count %>
 
   <% checkin.likes.each do |like| %>
-    <%= image_tag like.user.avatar_url, width: 20 %>
+    <%= image_tag like.user.avatar, width: 20 %>
   <% end %>
 
 <% end %>
