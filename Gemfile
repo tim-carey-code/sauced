@@ -3,10 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
-gem 'aws-sdk-s3', require: false
 gem 'bootsnap', require: false
 gem 'bootstrap', '~> 5.2.2'
 gem 'devise'
+gem 'google-cloud-storage', '~> 1.11', require: false
 gem 'honeybadger'
 gem 'image_processing', '~> 1.2'
 gem 'importmap-rails'
@@ -17,6 +17,7 @@ gem 'pg', '~> 1.4'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.4.3'
 gem 'redis', '~> 4.0'
+gem 'rubocop', require: false
 gem 'sassc-rails'
 gem 'sprockets-rails', '~> 3.4', '>= 3.4.2'
 gem 'stimulus-rails'
@@ -42,3 +43,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+gem "dockerfile-rails", ">= 1.5", :group => :development
