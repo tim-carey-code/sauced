@@ -6,9 +6,19 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
-amazon:
-  service: S3
-  access_key_id: <%= ENV["AWS_ACCESS_KEY_ID"] %>
-  secret_access_key: <%= ENV["AWS_SECRET_ACCESS_KEY"] %>
-  region: <%= ENV["AWS_REGION"] %>
-  bucket: <%= ENV["AWS_BUCKET"] %>
+
+google:
+  service: GCS
+  credentials:
+    type: "service_account"
+    project_id: <%= Rails.application.credentials.dig(:gcs, :project_id) %>
+    private_key_id: <%= Rails.application.credentials.dig(:gcs, :private_key_id) %>
+    private_key: <%= Rails.application.credentials.dig(:gcs, :private_key).dump %>
+    client_email: <%= Rails.application.credentials.dig(:gcs, :client_email) %>
+    client_id: <%= Rails.application.credentials.dig(:gcs, :client_id) %>
+    auth_uri: "https://accounts.google.com/o/oauth2/auth"
+    token_uri: "https://accounts.google.com/o/oauth2/token"
+    auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs"
+    client_x509_cert_url: ""
+  bucket: "sauced_bucket"
+
