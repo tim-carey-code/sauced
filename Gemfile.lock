@@ -72,7 +72,7 @@ GEM
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
     ast (2.4.2)
-    autoprefixer-rails (10.4.7.0)
+    autoprefixer-rails (10.4.13.0)
       execjs (~> 2)
     bcrypt (3.1.18)
     better_errors (2.9.1)
@@ -84,9 +84,9 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.15.0)
       msgpack (~> 1.2)
-    bootstrap (5.2.3)
+    bootstrap (5.3.0.alpha3)
       autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 2.11.6, < 3)
+      popper_js (>= 2.11.7, < 3)
       sassc-rails (>= 2.0.0)
     builder (3.2.4)
     bundler-audit (0.9.1)
@@ -233,7 +233,7 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.4.5)
-    popper_js (2.11.6)
+    popper_js (2.11.7)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -381,7 +381,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap
-  bootstrap (~> 5.2.2)
+  bootstrap (~> 5.3.0.alpha3)
   bundler-audit
   capybara
   debug
