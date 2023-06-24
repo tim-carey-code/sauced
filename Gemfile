@@ -35,6 +35,7 @@ group :development do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'dockerfile-rails', '>= 1.5'
   gem 'web-console'
 end
 
@@ -43,5 +44,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-gem "dockerfile-rails", ">= 1.5", :group => :development
