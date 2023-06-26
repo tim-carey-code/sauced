@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 class FavoritesController < ApplicationController
   before_action :authenticate_user!
-  
-  def index
-  end
+
+  def index; end
 
   def create
     find_hotsauce(key: :hotsauce_id)
@@ -23,7 +24,7 @@ class FavoritesController < ApplicationController
     if @favorite.destroy
       flash[:success] = "Removed #{@hotsauce.name} from favorites."
     else
-      flash[:error] = "Something went wrong."
+      flash[:error] = 'Something went wrong.'
     end
     redirect_back fallback_location: hotsauce_path(@hotsauce)
   end

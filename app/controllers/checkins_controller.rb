@@ -12,6 +12,7 @@ class CheckinsController < ApplicationController
     find_hotsauce
 
     result = CreateCheckin.call(user: current_user, params: checkin_params, hotsauce: @hotsauce)
+
     if result.success?
       flash[:success] = 'Checked in!'
       redirect_to feed_items_path
