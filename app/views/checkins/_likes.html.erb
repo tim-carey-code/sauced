@@ -1,18 +1,39 @@
-
 <%= turbo_frame_tag dom_id(checkin) do %>
   <% if user_signed_in? && current_user.likes?(checkin) %>
-    <%= link_to "Unlike", checkin_like_path(checkin),  data: { turbo_method: :delete } %>
+    <%= link_to checkin_like_path(checkin),  data: { turbo_method: :delete }, class: "text-decoration-none" do %>
+      <i class="bi bi-hand-thumbs-up-fill fs-3"></i>
+    <% end %>
   <% else %>
-    <%= link_to "Like", checkin_like_path(checkin), data: { turbo_method: :post } %>
+    <%= link_to checkin_like_path(checkin), data: { turbo_method: :post }, class: "text-decoration-none" do %>
+      <i class="bi bi-hand-thumbs-up fs-3"></i>
+    <% end %>
   <% end %>
-
-  <%= checkin.likes.count %>
-
-  <% checkin.likes.each do |like| %>
-    <%= image_tag like.user.avatar, width: 20 %>
+  <% if checkin.likes.count > 1 %>
+    <%= link_to "#", data: { bs_toggle: "modal", bs_target: "#staticBackdrop" }, class: "text-decoration-none" do %>
+      <%= checkin.likes.count %> likes
+    <% end %>
+  <% else %>
+    <%= link_to "#", data: { bs_toggle: "modal", bs_target: "#staticBackdrop" }, class: "text-decoration-none" do %>
+      <%= checkin.likes.count %> like
+    <% end %>
   <% end %>
-
 <% end %>
-
-
-
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title text-black fs-5" id="staticBackdropLabel">Likes</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-black">
+        <% checkin.likes.each do |like| %>
+          <p class="m-0"><%= like.user.username %> <%= image_tag like.user.avatar.variant(:thumb), class: "img-fluid rounded-circle" %></p>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
