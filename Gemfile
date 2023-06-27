@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.2.2'
 
 gem 'bootsnap', require: false
 gem 'bootstrap', '~> 5.3.0.alpha3'
@@ -15,7 +17,7 @@ gem 'jbuilder'
 gem 'jquery-rails'
 gem 'pg', '~> 1.4'
 gem 'puma', '~> 5.0'
-gem 'rails', '~> 7.0.4.3'
+gem 'rails', '~> 7.0.5.1'
 gem 'redis', '~> 4.0'
 gem 'rubocop', require: false
 gem 'sassc-rails'
