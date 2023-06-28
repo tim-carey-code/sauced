@@ -6,7 +6,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.2.2'
 
 gem 'bootsnap', require: false
-gem 'bootstrap', '~> 5.3.0.alpha3'
 gem 'devise'
 gem 'google-cloud-storage', '~> 1.11', require: false
 gem 'honeybadger'
@@ -46,3 +45,8 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+gem 'jsbundling-rails', '~> 1.1'
+
+
+gem "tailwindcss-rails", "~> 2.0"
