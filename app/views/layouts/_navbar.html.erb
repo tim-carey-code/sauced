@@ -37,10 +37,10 @@
         <% if user_signed_in? %>
           <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li class="nav-item">
-              <%= link_to "News Feed", feed_items_path, data: { turbo: false }, class: active_link_class(feed_items_path) %>
+              <%= link_to "News Feed", feed_items_path, data: { turbo: false }  %>
             </li>
             <li class="nav-item">
-              <%= link_to "Sauces", hotsauces_path, data: { turbo: false }, class: active_link_class(hotsauces_path) %>
+              <%= link_to "Sauces", hotsauces_path, data: { turbo: false } %>
             </li>
           </ul>
         <% end %>
