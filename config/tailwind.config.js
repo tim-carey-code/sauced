@@ -5,17 +5,16 @@ module.exports = {
     './app/javascript/**/*.js',
     './app/views/**/*.{erb,haml,html,slim}',
     './app/components/**/*.rb',
-    './app/components/**/*.{erb,haml,html,slim}'
+    './app/components/**/*.{erb,haml,html,slim}',
+    './node_modules/flowbite/**/*.js'
+
   ],
   theme: {
     extend: {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
     require('flowbite/plugin'),
-    require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
-    require('@tailwindcss/container-queries'),
   ]
 }
