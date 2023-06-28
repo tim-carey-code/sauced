@@ -10,7 +10,11 @@
         <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
           <span class="sr-only">Open user menu</span>
           <% if user_signed_in? %>
-            <%= image_tag current_user.avatar.variant(:thumb), class: "w-8 h-8 rounded-full", alt: "#{current_user.username} avatar" %>
+            <% if current_user.avatar.attached? %>
+              <%= image_tag current_user.avatar.variant(:thumb), class: "w-8 h-8 rounded-full", alt: "#{current_user.username} avatar" %>
+            <% else %>
+              <%= image_tag "ketchup_bottle.png", class: "w-8 h-8 rounded-full", alt: "Ketchup Bottle Default Avatar", variant: :thumb %>
+            <% end %>
           </button>
           <!-- Dropdown menu -->
           <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
@@ -37,10 +41,10 @@
         <% if user_signed_in? %>
           <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li class="nav-item">
-              <%= link_to "News Feed", feed_items_path, data: { turbo: false }  %>
+              <%= link_to "News Feed", feed_items_path, data: { turbo: false }, class: active_link_class(feed_items_path) %>
             </li>
             <li class="nav-item">
-              <%= link_to "Sauces", hotsauces_path, data: { turbo: false } %>
+              <%= link_to "Sauces", hotsauces_path, data: { turbo: false }, class: active_link_class(hotsauces_path) %>
             </li>
           </ul>
         <% end %>
