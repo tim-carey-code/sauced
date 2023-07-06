@@ -5,7 +5,7 @@
   <h4 class="display-4 text-light text-center">Sauced Feed</h4>
 <% end %>
 <% @feed_items.map do |feed_item| %>
-  <div>
+  <div class="container flex flex-col justify-center items-center mx-auto px-4">
     <%= render partial: "feed_items/#{feed_item.feedable_type.downcase}", locals: { feed_item: feed_item } %>
   </div>
 <% end %>

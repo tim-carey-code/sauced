@@ -1,22 +1,18 @@
-<div class="row">
-  <div class="col">
-    <div class="card border text-light border-white border-2 m-2">
-      <div class="card-body bg-peppers">
-        <p class="lead">
-          <%= link_to user_profile_path(feed_item.user) do %>
-            <%= feed_item.user.username %>
-          <% end %>
-          checked into <%= link_to feed_item.feedable.hotsauce.name, hotsauce_path(feed_item.feedable.hotsauce) %>
-        </p>
-        <%= image_tag feed_item.feedable.hotsauce.sauce_bottle_image.variant(:medium), class: "img-fluid" %>
-        <% if feed_item.feedable.review.present? %>
-          <%= feed_item.feedable.review %>
-        <% end %>
-        <small>
-          <%= time_ago_in_words(feed_item.created_at) %> ago
-        </small>
-        <p id="checkin_<%= feed_item.feedable.id %>_likes"><%= render partial: "checkins/likes", locals: {checkin: feed_item.feedable} %></p>
-      </div>
-    </div>
+<%= render CardComponent.new do %>
+  <p>
+    <%= link_to user_profile_path(feed_item.user), class: "link-primary" do %>
+      <%= feed_item.user.username %>
+    <% end %>
+    checked into <%= link_to feed_item.feedable.hotsauce.name, hotsauce_path(feed_item.feedable.hotsauce), class: "link-primary" %>
+  </p>
+  <div>
+    <%= image_tag feed_item.feedable.hotsauce.sauce_bottle_image.variant(:medium) %>
+    <% if feed_item.feedable.review.present? %>
+      <%= feed_item.feedable.review %>
+    <% end %>
   </div>
-</div>
+  <small>
+    <%= time_ago_in_words(feed_item.created_at) %> ago
+  </small>
+  <p id="checkin_<%= feed_item.feedable.id %>_likes"><%= render partial: "checkins/likes", locals: {checkin: feed_item.feedable} %></p>
+<% end %>
