@@ -13,7 +13,7 @@ class HotsaucesTest < ApplicationSystemTestCase
 
   test "should create hotsauce" do
     visit hotsauces_url
-    click_on "New hotsauce"
+    click_on "New Hotsauce"
 
     fill_in "Description", with: @hotsauce.description
     fill_in "Name", with: @hotsauce.name
