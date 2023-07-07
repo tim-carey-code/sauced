@@ -3,18 +3,10 @@
 @tailwind utilities;
 @import "application";
 
-/*
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
-}
-
-*/
-
+/* 
 @layer components {
   .nav-link-active {
-    @apply block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500;
+    @apply block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500;
   }
 
   .nav-link-not-active {
@@ -30,10 +22,14 @@
   }
 
   .btn-primary {
-    @apply w-full text-white bg-[#800000] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-2;
+    @apply w-full text-white bg-[#800000] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-[#800000] dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-2;
   }
 
   .link-primary {
     @apply font-medium text-blue-400 dark:text-blue-400 hover:underline;
   }
+  .badge-primary {
+    @apply bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300;
+  }
 }
+*/

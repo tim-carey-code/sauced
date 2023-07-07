@@ -25,16 +25,16 @@ body {
 }
 
 .bg-peppers {
-  background-image: url(asset_path('peppers.jpeg'));
-  background-size: cover;
+  background-image: url(asset_path("peppers.jpeg"));
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .bg-peppers-2 {
   height: 200px;
   width: 100%;
   object-fit: cover;
-  opacity: .25
+  opacity: 0.25;
 }
 
 .btn-primary {
@@ -56,7 +56,7 @@ body {
 }
 
 .bg-flames {
-  background-image: url(asset_path('flames.jpeg'));
+  background-image: url(asset_path("flames.jpeg"));
   background-size: cover;
   background-position: center;
 }

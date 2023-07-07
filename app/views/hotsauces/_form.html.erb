@@ -1,8 +1,7 @@
-<%= form_with(model: hotsauce) do |form| %>
+  <%= form_with(model: hotsauce) do |form| %>
   <% if hotsauce.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(hotsauce.errors.count, "error") %> prohibited this hotsauce from being saved:</h2>
-
       <ul>
         <% hotsauce.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,30 +9,25 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="d-flex flex-column justify-content-center align-items-center">
+  <div class="text-white">
     <div>
       <%= form.label :name, style: "display: block", class: "form-label" %>
-      <%= form.text_field :name, class: "form-control" %>
+      <%= form.text_field :name, class: "form-control text-black" %>
     </div>
-
     <div>
       <%= form.label :description, style: "display: block", class: "form-label" %>
-      <%= form.text_field :description, class: "form-control" %>
+      <%= form.text_field :description, class: "form-control text-black" %>
     </div>
-
-    <div>
-      <%= form.label :category, style: "display: block", class: "form-label" %>
+    <div class="text-black">
+      <%= form.label :category, style: "display: block", class: "form-label text-white" %>
       <%= form.select :category, options_for_select([["Hot Sauce", "Hot Sauce"], ["Salsa", "Salsa"], ["BBQ Sauce", "BBQ Sauce"], ["Dry Rub", "Dry Rub"], ["Other", "Other"]], selected: hotsauce.category) %>
     </div>
-
     <div class="m-2">
       <%= form.label "Upload image of hotsauce bottle", class: "form-label" %>
       <p><%= form.file_field :sauce_bottle_image, class: "m-2" %></p>
     </div>
-
     <div>
-      <%= form.submit nil, class: "btn btn-primary" %>
+      <%= render PrimaryButtonComponent.new(is_form: true, form: form) %>
     </div>
   </div>
 <% end %>

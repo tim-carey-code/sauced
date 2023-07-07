@@ -7,9 +7,9 @@
   </p>
   <div>
     <% if feed_item.feedable.hotsauce.sauce_bottle_image.attached? %>
-      <%= image_tag feed_item.feedable.hotsauce.sauce_bottle_image.variant(:medium), class: "img-fluid" %>
+      <%= image_tag feed_item.feedable.hotsauce.sauce_bottle_image, class: "h-auto max-w-xs rounded-lg" %>
     <% else %>
-      <%= image_tag "ketchup_bottle.png", class: "img-fluid" %>
+      <%= image_tag "ketchup_bottle.png", class: "h-auto max-w-xs rounded-lg" %>
     <% end %>
   </div>
   <small>

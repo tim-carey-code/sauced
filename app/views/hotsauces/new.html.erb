@@ -1,16 +1,15 @@
 <% content_for :title do %>
   New Hot Sauce
 <% end %>
-
-<div class="d-flex text-center text-light justify-content-center align-items-center">
-  <div class="card border border-white border-2 mb-2" style="width: 18rem;">
-    <div class="card-body bg-peppers">
-      <h5 class="card-title fs-1">New Sauce</h5>
-      <%= render "form", hotsauce: @hotsauce %>
-
-      <br>
-
-      <%= link_to "Back to hotsauces", hotsauces_path, class: "btn btn-secondary" %>
-    </div>
+<div class="w-fit mt-10 container mx-auto my-auto">
+  <div class="flex justify-center items-center text-center">
+    <%= render CardComponent.new do %>
+      <div>
+        <h5 class="text-xl">New Sauce</h5>
+        <%= render "form", hotsauce: @hotsauce %>
+        <br>
+        <%= render AlternativeButtonComponent.new(btn_name: "Back to hotsauces", btn_path: hotsauces_path, is_link: true) %>
+      </div>
+    <% end %>
   </div>
 </div>

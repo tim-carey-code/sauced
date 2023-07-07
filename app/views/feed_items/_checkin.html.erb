@@ -6,7 +6,11 @@
     checked into <%= link_to feed_item.feedable.hotsauce.name, hotsauce_path(feed_item.feedable.hotsauce), class: "link-primary" %>
   </p>
   <div>
-    <%= image_tag feed_item.feedable.hotsauce.sauce_bottle_image.variant(:medium) %>
+    <% if feed_item.feedable.hotsauce.sauce_bottle_image.attached? %>
+      <%= image_tag feed_item.feedable.hotsauce.sauce_bottle_image, class: "h-auto max-w-xs rounded-lg" %>
+    <% else %>
+      <%= image_tag "ketchup_bottle.png", class: "h-auto max-w-xs rounded-lg" %>
+    <% end %>
     <% if feed_item.feedable.review.present? %>
       <%= feed_item.feedable.review %>
     <% end %>
@@ -14,5 +18,7 @@
   <small>
     <%= time_ago_in_words(feed_item.created_at) %> ago
   </small>
-  <p id="checkin_<%= feed_item.feedable.id %>_likes"><%= render partial: "checkins/likes", locals: {checkin: feed_item.feedable} %></p>
+  <p id="checkin_<%= feed_item.feedable.id %>_likes">
+    <%= render partial: "checkins/likes", locals: {checkin: feed_item.feedable} %>
+  </p>
 <% end %>

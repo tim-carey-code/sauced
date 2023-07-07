@@ -11,6 +11,8 @@ class Checkins::LikesController < ApplicationController
     end
   end
 
+  def show; end
+
   def destroy
     @checkin.likes.where(user_id: current_user.id).destroy_all
 
@@ -22,7 +24,7 @@ class Checkins::LikesController < ApplicationController
 
   private
 
-    def set_checkin
-      @checkin = Checkin.find(params[:checkin_id])
-    end
+  def set_checkin
+    @checkin = Checkin.find(params[:checkin_id])
+  end
 end
