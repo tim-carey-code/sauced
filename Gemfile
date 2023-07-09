@@ -16,7 +16,7 @@ gem 'jbuilder'
 gem 'jquery-rails'
 gem 'pg', '~> 1.4'
 gem 'puma', '~> 5.0'
-gem 'rails', '~> 7.0.5.1'
+gem 'rails', '~> 7.0.6'
 gem 'redis', '~> 4.0'
 gem 'rubocop', require: false
 gem 'sassc-rails'
@@ -48,5 +48,4 @@ end
 
 gem 'jsbundling-rails', '~> 1.1'
 
-
-gem "tailwindcss-rails", "~> 2.0"
+gem 'tailwindcss-rails', '~> 2.0'
