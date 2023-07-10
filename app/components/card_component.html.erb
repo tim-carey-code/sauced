@@ -1,3 +1,10 @@
-<div class="w-min h-[50vh] p-6 mb-10 text-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 bg-peppers">
-  <%= content %>
+<div class="card <%= @container_classes %> w-96 col-span-1 bg-base-100 shadow-xl">
+  <% if @img_src.present? %>
+    <figure>
+      <%= image_tag @img_src, alt: @img_alt %>
+    </figure>
+  <% end %>
+  <div class="card-body">
+    <%= content %>
+  </div>
 </div>

@@ -1,8 +1,13 @@
+# frozen_string_literal: true
+
 class Users::ProfilesController < ApplicationController
   def index
-    find_user(key: :id)
+    if user_signed_in?
+      find_user(key: :id)
+    else
+      redirect_to new_user_session_path
+    end
   end
-
 
   private
 

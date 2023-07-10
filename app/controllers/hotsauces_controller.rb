@@ -1,20 +1,18 @@
 class HotsaucesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_hotsauce, only: %i[ show edit update destroy ]
+  before_action :set_hotsauce, only: %i[show edit update destroy]
 
   def index
-    @hotsauces = Hotsauce.all.order(created_at: :desc)
+    @pagy, @hotsauces = pagy(Hotsauce.all.order(created_at: :desc))
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @hotsauce = Hotsauce.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     result = CreateHotSauce.call(user: current_user, params: hotsauce_params)
@@ -22,7 +20,7 @@ class HotsaucesController < ApplicationController
 
     respond_to do |format|
       if result.success?
-        format.html { redirect_to hotsauce_url(@hotsauce), notice: "Hotsauce was successfully created." }
+        format.html { redirect_to hotsauce_url(@hotsauce), notice: 'Hotsauce was successfully created.' }
         format.json { render :show, status: :created, location: @hotsauce }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -34,7 +32,7 @@ class HotsaucesController < ApplicationController
   def update
     respond_to do |format|
       if @hotsauce.update(hotsauce_params)
-        format.html { redirect_to hotsauce_url(@hotsauce), notice: "Hotsauce was successfully updated." }
+        format.html { redirect_to hotsauce_url(@hotsauce), notice: 'Hotsauce was successfully updated.' }
         format.json { render :show, status: :ok, location: @hotsauce }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -47,17 +45,18 @@ class HotsaucesController < ApplicationController
     @hotsauce.destroy
 
     respond_to do |format|
-      format.html { redirect_to hotsauces_url, notice: "Hotsauce was successfully destroyed." }
+      format.html { redirect_to hotsauces_url, notice: 'Hotsauce was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    def set_hotsauce
-      @hotsauce = Hotsauce.find(params[:id])
-    end
 
-    def hotsauce_params
-      params.require(:hotsauce).permit(:name, :description, :category, :sauce_bottle_image, :user_id)
-    end
+  def set_hotsauce
+    @hotsauce = Hotsauce.find(params[:id])
+  end
+
+  def hotsauce_params
+    params.require(:hotsauce).permit(:name, :description, :category, :sauce_bottle_image, :user_id)
+  end
 end

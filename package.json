@@ -6,8 +6,8 @@
     "@hotwired/turbo-rails": "^7.3.0",
     "@rails/actiontext": "^7.0.5-1",
     "@shoelace-style/shoelace": "^2.5.2",
+    "daisyui": "^3.2.1",
     "esbuild": "^0.18.10",
-    "flowbite": "^1.6.6",
     "trix": "^2.0.5"
   },
   "scripts": {

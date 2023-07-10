@@ -14,6 +14,7 @@ gem 'importmap-rails'
 gem 'interactor-rails', '~> 2.0'
 gem 'jbuilder'
 gem 'jquery-rails'
+gem 'pagy'
 gem 'pg', '~> 1.4'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.6'
@@ -29,6 +30,7 @@ gem 'view_component'
 group :development, :test do
   gem 'bundler-audit'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'faker'
   gem 'pry-byebug'
 end
 

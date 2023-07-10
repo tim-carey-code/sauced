@@ -4,4 +4,3 @@ import "./controllers";
 import "trix";
 import "@rails/actiontext";
 import "@shoelace-style/shoelace";
-import "flowbite/dist/flowbite.turbo.js";

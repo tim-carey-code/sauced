@@ -116,6 +116,8 @@ GEM
     dockerfile-rails (1.5.1)
       rails
     erubi (1.12.0)
+    faker (3.2.0)
+      i18n (>= 1.8.11, < 2)
     faraday (2.7.10)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
@@ -223,6 +225,7 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     os (1.1.4)
+    pagy (6.0.4)
     parallel (1.23.0)
     parser (3.2.2.3)
       ast (~> 2.4.1)
@@ -390,6 +393,7 @@ DEPENDENCIES
   debug
   devise
   dockerfile-rails (>= 1.5)
+  faker
   google-cloud-storage (~> 1.11)
   honeybadger
   image_processing (~> 1.2)
@@ -398,6 +402,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   jsbundling-rails (~> 1.1)
+  pagy
   pg (~> 1.4)
   pry-byebug
   puma (~> 5.0)
