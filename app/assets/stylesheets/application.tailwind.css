@@ -3,6 +3,16 @@
 @tailwind utilities;
 @import "application";
 
+@layer components {
+  .text-input-bordered {
+    @apply input input-bordered w-full max-w-xs;
+  }
+
+  .file-input-boredered {
+    @apply file-input file-input-bordered w-full max-w-xs;
+  }
+}
+
 .pagy-nav,
 .pagy-nav-js {
   @apply flex space-x-2;

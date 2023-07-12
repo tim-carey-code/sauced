@@ -9,8 +9,8 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
   <% @hotsauces.each do |hotsauce| %>
-    <%= render CardComponent.new(img_src: hotsauce.sauce_bottle_image.attached? ? hotsauce.sauce_bottle_image : "ketchup_bottle.png", img_alt: hotsauce.name, container_classes: "mb-4") do %>
-      <%= link_to hotsauce_path(hotsauce) do %>
+    <%= link_to hotsauce_path(hotsauce), class: "flex grow" do %>
+      <%= render CardComponent.new(img_src: hotsauce.sauce_bottle_image.attached? ? hotsauce.sauce_bottle_image : "ketchup_bottle.png", img_alt: hotsauce.name, container_classes: "mb-4") do %>
         <h5 class="card-title"><%= hotsauce.name %></h5>
         <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300"><%= hotsauce.category %></span>
         <br />

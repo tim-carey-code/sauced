@@ -12,21 +12,11 @@
     <%= checkin.likes.count %> likes
   <% end %>
 <% end %>
-<!-- Open the modal using ID.showModal() method -->
-<dialog id="likesModal_<%= dom_id(checkin) %>" class="modal">
-  <form method="dialog" class="modal-box">
-    <h3 class="font-bold text-lg"><%= checkin.user.username.titleize %>'s <%= checkin.hotsauce.name %> likes</h3>
-    <div class="flex items-center">
-      <% checkin.likes.each do |like| %>
-        <% if like.user.avatar.attached? %>
-          <%= image_tag like.user.avatar.variant(:thumb), class: "inline mt-4 mr-4 rounded-full" %>
-        <% end %>
-        <p class="py-4 inline"><%= link_to like.user.username, user_profile_path(like.user), class: "link link-primary mt-4" %></p>
-      <% end %>
-    </div>
-    <div class="modal-action">
-      <!-- if there is a button in form, it will close the modal -->
-      <button class="btn">Close</button>
-    </div>
-  </form>
-</dialog>
+<%= render ModalComponent.new(modal_title: "#{checkin.user.username}'s #{checkin.hotsauce.name} checkin likes", modal_id: "likesModal_#{dom_id(checkin)}") do %>
+  <% checkin.likes.each do |like| %>
+    <% if like.user.avatar.attached? %>
+      <%= image_tag like.user.avatar.variant(:thumb), class: "inline mt-4 mr-4 rounded-full" %>
+    <% end %>
+    <p class="py-4 inline"><%= link_to like.user.username, user_profile_path(like.user), class: "link link-primary mt-4" %></p>
+  <% end %>
+<% end %>

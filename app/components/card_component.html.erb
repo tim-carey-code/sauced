@@ -1,10 +1,10 @@
-<div class="card <%= @container_classes %> w-96 col-span-1 bg-base-100 shadow-xl">
+<div class="card <%= @container_classes %> bg-base-100 shadow-xl">
   <% if @img_src.present? %>
     <figure>
       <%= image_tag @img_src, alt: @img_alt %>
     </figure>
   <% end %>
-  <div class="card-body">
+  <div class="card-body <%= @card_body_classes %>">
     <%= content %>
   </div>
 </div>

@@ -3,12 +3,14 @@
 <% end %>
 <div class="w-fit mt-10 container mx-auto my-auto">
   <div class="flex justify-center items-center text-center">
-    <%= render CardComponent.new(container_classes: "mb-4") do %>
+    <%= render CardComponent.new(container_classes: "mb-4", card_body_classes: "bg-peppers") do %>
       <div>
         <h5 class="text-xl">New Sauce</h5>
         <%= render "form", hotsauce: @hotsauce %>
         <br>
-        <%= render AlternativeButtonComponent.new(btn_name: "Back to hotsauces", btn_path: hotsauces_path, is_link: true) %>
+        <div class="card-actions justify-end">
+          <%= link_to "Back to hotsauces", hotsauces_path, class: "btn btn-secondary" %>
+        </div>
       </div>
     <% end %>
   </div>

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FeedItemsController < ApplicationController
   before_action :authenticate_user!
 

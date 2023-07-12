@@ -9,25 +9,19 @@
       </ul>
     </div>
   <% end %>
-  <div class="text-white">
-    <div>
-      <%= form.label :name, style: "display: block", class: "form-label" %>
-      <%= form.text_field :name, class: "form-control text-black" %>
-    </div>
-    <div>
-      <%= form.label :description, style: "display: block", class: "form-label" %>
-      <%= form.text_field :description, class: "form-control text-black" %>
-    </div>
-    <div class="text-black">
-      <%= form.label :category, style: "display: block", class: "form-label text-white" %>
-      <%= form.select :category, options_for_select([["Hot Sauce", "Hot Sauce"], ["Salsa", "Salsa"], ["BBQ Sauce", "BBQ Sauce"], ["Dry Rub", "Dry Rub"], ["Other", "Other"]], selected: hotsauce.category) %>
-    </div>
-    <div class="m-2">
-      <%= form.label "Upload image of hotsauce bottle", class: "form-label" %>
-      <p><%= form.file_field :sauce_bottle_image, class: "m-2" %></p>
-    </div>
-    <div>
-      <%= render PrimaryButtonComponent.new(is_form: true, form: form) %>
-    </div>
+  <%= render TextInputComponent.new(label: "Name") do %>
+    <%= form.text_field :name, placeholder: "Sriracha", class: "placeholder-red-500 text-input-bordered" %>
+  <% end %>
+  <%= render TextInputComponent.new(label: "Description") do %>
+    <%= form.text_field :description, placeholder: "Spicy, garlicky, tangy chili sauce with a kick that adds flavor and heat to any dish.", class: "placeholder-red-500 text-input-bordered" %>
+  <% end %>
+  <%= render SelectInputComponent.new(label: "Category") do %>
+    <%= form.select :category, options_for_select([["Hot Sauce", "Hot Sauce"], ["Salsa", "Salsa"], ["BBQ Sauce", "BBQ Sauce"], ["Dry Rub", "Dry Rub"], ["Other", "Other"]], selected: hotsauce.category), {}, class: "text-red-500 select select-bordered" %>
+  <% end %>
+  <%= render FileInputComponent.new(label: "Upload image of product") do %>
+    <%= form.file_field :sauce_bottle_image, class: "file-input-boredered mb-4" %>
+  <% end %>
+  <div class="card-actions justify-end">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

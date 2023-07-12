@@ -5,7 +5,10 @@ module.exports = {
     "./app/javascript/**/*.js",
     "./app/views/**/*.{erb,haml,html,slim}",
     "./app/components/**/*.rb",
+    "./app/components/**/**/*.rb",
     "./app/components/**/*.{erb,haml,html,slim}",
+    "./app/components/**/**/*.{erb,haml,html,slim}",
+    "./app/components/**/*.{html.erb}",
   ],
 
   plugins: [require("daisyui"), require("@tailwindcss/typography")],

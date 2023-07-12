@@ -14,6 +14,7 @@ gem 'importmap-rails'
 gem 'interactor-rails', '~> 2.0'
 gem 'jbuilder'
 gem 'jquery-rails'
+gem 'jsbundling-rails', '~> 1.1'
 gem 'pagy'
 gem 'pg', '~> 1.4'
 gem 'puma', '~> 5.0'
@@ -23,6 +24,7 @@ gem 'rubocop', require: false
 gem 'sassc-rails'
 gem 'sprockets-rails', '~> 3.4', '>= 3.4.2'
 gem 'stimulus-rails'
+gem 'tailwindcss-rails', '~> 2.0'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'view_component'
@@ -47,7 +49,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-gem 'jsbundling-rails', '~> 1.1'
-
-gem 'tailwindcss-rails', '~> 2.0'
