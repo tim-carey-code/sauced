@@ -5,6 +5,9 @@
     </figure>
   <% end %>
   <div class="card-body <%= @card_body_classes %>">
+    <% if @title.present? %>
+      <h5 class="text-xl"><%= @title %></h5>
+    <% end %>
     <%= content %>
   </div>
 </div>

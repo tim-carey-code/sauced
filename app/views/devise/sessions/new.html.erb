@@ -5,7 +5,7 @@
   <%= render CardComponent.new(card_body_classes: "bg-peppers rounded-lg border-2 border-white") do %>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-6" }, remote: true) do |f| %>
       <form class="space-y-6" action="#">
-        <h5 class="text-xl mb-4 font-medium text-gray-900 dark:text-white">Sign in to our platform</h5>
+        <h5 class="text-xl mb-4 font-medium text-gray-900 dark:text-white">Sign Up</h5>
         <div>
           <%= f.label :username, class: "label label-text" %>
           <%= f.text_field :username, autofocus: true, required: true, autocomplete: "username", class: "input input-bordered w-full max-w-xs", placeholder: "Username", autocapitalize: "none" %>
@@ -25,7 +25,7 @@
           <% end %>
           <%= link_to "Lost Password?", new_password_path(resource_name), class: "ml-auto text-sm link link-error" %>
         </div>
-        <%= f.submit "Log in to your account", class: "btn btn-primary" %>
+        <%= f.submit "Log in to your account", class: "btn btn-primary btn-block" %>
         <div class="text-sm font-medium text-gray-500 dark:text-gray-300 mt-2">
           Not registered? <%= link_to "Create account", new_user_registration_path, class: "link link-accent" %>
         </div>
