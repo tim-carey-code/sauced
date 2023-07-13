@@ -1,65 +1,41 @@
 <% content_for :title do %>
   Profile
 <% end %>
-
-<div class="text-center text-light d-flex justify-content-center align-items-center">
-  <div class="card my-2" style="width: 18rem;">
-    <div class="card-body bg-peppers">
-      <div class="card-title">
-        <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="text-center flex flex-col justify-center items-center h-screen">
+  <%= render CardComponent.new(container_classes: "bg-peppers w-96 border-2 border-white", title: "Edit #{resource_name.to_s.humanize}") do %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), remote: true) do |form| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= render TextInputComponent.new(label: "Email") do %>
+        <%= form.email_field :email, autofocus: true, autocomplete: "email", class: "text-input-bordered" %>
+      <% end %>
+      <%= render TextInputComponent.new(label: "Username") do %>
+        <%= form.text_field :username, autocomplete: "username", class: "text-input-bordered" %>
+      <% end %>
+      <%= render TextInputComponent.new(label: "Password") do %>
+        <% if @minimum_password_length %>
+          <em class="text-md mb-2 flex justify-start">(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br/>
+        <%= form.password_field :password, autocomplete: "new-password", class: "text-input-bordered" %>
+      <% end %>
+      <%= render TextInputComponent.new(label: "Password Confirmation") do %>
+        <%= form.password_field :password_confirmation, autocomplete: "new-password", class: "text-input-bordered" %>
+      <% end %>
+      <%= render TextInputComponent.new(label: "Current Password") do %>
+        <%= form.password_field :current_password, autocomplete: "current-password", class: "text-input-bordered" %>
+      <% end %>
+      <%= render FileInputComponent.new(label: "Upload an avatar(not required)") do %>
+        <%= form.file_field :avatar, class: "file-field-bordered mb-4" %>
+      <% end %>
+      <div class="actions">
+        <%= form.submit "Update", class: "btn btn-primary btn-block" %>
       </div>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), remote: true) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-
-        <div class="field">
-          <%= f.label :email %><br/>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :username %><br/>
-          <%= f.text_field :username, class: "form-control" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br/>
-          <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password_confirmation %><br/>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br/>
-          <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
-        </div>
-
-        <div class="field my-2">
-          <%= f.label "Upload an Avatar for your user(not required)" %><br/>
-          <%= f.file_field :avatar %>
-        </div>
-
-        <div class="actions">
-          <%= f.submit "Update", class: "btn btn-primary" %>
-        </div>
-      <% end %>
-
-      <%= link_to "Sign Out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-warning my-2" %>
-
-      <h3>Cancel my account</h3>
-
-      <p>Unhappy?</p>
-      <%= button_to registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" do %>
-        <i class="bi bi-radioactive"></i>
-
-        <span>Cancel my account</span>
-      <% end %>
-      <%= link_to "Back", :back, class: "btn btn-secondary my-2" %>
-    </div>
-  </div>
+    <% end %>
+    <%= link_to "Sign Out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-warning my-2" %>
+    <p>Unhappy?</p>
+    <%= button_to registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-error btn-block" do %>
+      <i class="bi bi-radioactive"></i>
+      <span>Cancel my account</span>
+    <% end %>
+    <%= link_to "Back", :back, class: "btn btn-secondary my-2" %>
+  <% end %>
 </div>

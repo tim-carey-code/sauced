@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: feed_items
@@ -10,6 +12,6 @@
 #  user_id       :integer          not null
 #
 class FeedItem < ApplicationRecord
-   belongs_to :feedable, polymorphic: true
-   belongs_to :user
+  belongs_to :feedable, polymorphic: true
+  belongs_to :user
 end

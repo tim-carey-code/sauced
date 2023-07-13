@@ -22,7 +22,7 @@
       <% end %>
       <%= render FileInputComponent.new(label: "Upload an Avatar") do %>
         <small class="mb-2">A default avatar will be assigned if left blank.</small>
-        <%= form.file_field :avatar, class: "file-input-boredered mb-4" %>
+        <%= form.file_field :avatar, class: "file-field-bordered mb-4" %>
       <% end %>
       <div class="actions">
         <%= form.submit "Sign up", class: "btn btn-primary btn-block" %>

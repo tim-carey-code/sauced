@@ -19,7 +19,7 @@
     <%= form.select :category, options_for_select([["Hot Sauce", "Hot Sauce"], ["Salsa", "Salsa"], ["BBQ Sauce", "BBQ Sauce"], ["Dry Rub", "Dry Rub"], ["Other", "Other"]], selected: hotsauce.category), {}, class: "text-red-500 select select-bordered" %>
   <% end %>
   <%= render FileInputComponent.new(label: "Upload image of product") do %>
-    <%= form.file_field :sauce_bottle_image, class: "file-input-boredered mb-4" %>
+    <%= form.file_field :sauce_bottle_image, class: "file-field-bordered mb-4" %>
   <% end %>
   <div class="card-actions justify-end">
     <%= form.submit class: "btn btn-primary btn-block" %>

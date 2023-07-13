@@ -3,37 +3,26 @@
   <%= @user.username %> Profile
 <% end %>
 <% if !turbo_native_app? %>
-  <h4 class="display-4 text-center text-light">Favorites</h4>
+  <h4 class="text-3xl mb-4 text-center text-white">Favorites</h4>
 <% end %>
 <% @user.favorites.map do |favorite| %>
-  <div class="row">
-    <div class="col">
-      <div class="card border text-light border-white border-2 m-2">
-        <%= link_to hotsauce_path(favorite.hotsauce) do %>
-          <div class="card-body bg-peppers">
-            <div class="row">
-              <div class="col-4">
-                <% if favorite.hotsauce.sauce_bottle_image.attached? %>
-                  <%= image_tag favorite.hotsauce.sauce_bottle_image.variant(:medium), class: "img-thumbnail" %>
-                <% else %>
-                  <%= image_tag "ketchup_bottle.png", class: "img-thumbnail" %>
-                <% end %>
-              </div>
-              <div class="col-6">
-                <h5 class="card-title fs-1"><%= favorite.hotsauce.name %></h5>
-                <span class="badge bg-primary"><%= favorite.hotsauce.category %></span>
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col">
-                <% if @user == current_user %>
-                  <%= link_to "Remove from favorites", favorite_path(favorite), class: "btn btn-danger", data: { turbo_method: :delete } %>
-                <% end %>
-              </div>
-            </div>
-          </div>
+  <div class="flex flex-col justify-center items-center">
+    <%= render CardComponent.new(container_classes: "border-2 border-white w-96 flex") do %>
+      <%= link_to hotsauce_path(favorite.hotsauce) do %>
+        <% if favorite.hotsauce.sauce_bottle_image.attached? %>
+          <%= image_tag favorite.hotsauce.sauce_bottle_image.variant(:medium), class: "img-thumbnail" %>
+        <% else %>
+          <%= image_tag "ketchup_bottle.png", class: "img-thumbnail" %>
         <% end %>
-      </div>
-    </div>
+        <h5 class="card-title mt-2 mb-2"><%= favorite.hotsauce.name %></h5>
+        <span class="badge badge-primary"><%= favorite.hotsauce.category %></span>
+        <% if @user == current_user %>
+          <%= link_to favorite_path(favorite), data: { confirm: "Are you sure?", turbo_method: :delete }, class: "btn btn-error btn-block" do %>
+            <i class="bi bi-radioactive"></i>
+            <span>Remove from favorites</span>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 <% end %>

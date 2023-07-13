@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="synthwave" class="h-screen">
+<html data-theme="synthwave" class="bg-flames h-screen">
   <head>
     <title>
       <% if content_for? :title %>
@@ -17,11 +17,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-  <body class="h-screen bg-flames">
+  <body class="">
     <%= render "layouts/navbar" %>
     <%= render "layouts/alerts" %>
-    <main class="container mx-auto px-10">
-      <%= yield %>
+    <main class="container mx-auto px-10"> <%= yield %>
     </main>
   </body>
 </html>

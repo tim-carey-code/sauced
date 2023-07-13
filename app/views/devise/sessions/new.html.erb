@@ -2,34 +2,32 @@
   Log In
 <% end %>
 <div class="flex items-center justify-center h-screen">
-  <%= render CardComponent.new(card_body_classes: "bg-peppers rounded-lg border-2 border-white") do %>
+  <%= render CardComponent.new(container_classes: "image-full w-96 h-[500px]", img_src: "bg_peppers_2.jpg", img_alt: "Peppers Background", img_classes: "w-full") do %>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-6" }, remote: true) do |f| %>
-      <form class="space-y-6" action="#">
-        <h5 class="text-xl mb-4 font-medium text-gray-900 dark:text-white">Sign Up</h5>
-        <div>
-          <%= f.label :username, class: "label label-text" %>
-          <%= f.text_field :username, autofocus: true, required: true, autocomplete: "username", class: "input input-bordered w-full max-w-xs", placeholder: "Username", autocapitalize: "none" %>
-        </div>
-        <div>
-          <%= f.label :password, class: "label label-text" %>
-          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", autocapitalize: "none", required: true, class: "input input-bordered w-full max-w-xs" %>
-        </div>
-        <div class="flex mt-2 items-start">
-          <% if devise_mapping.rememberable? %>
-            <div class="flex items-start">
-              <div class="flex items-center h-5">
-                <%= f.check_box :remember_me, class: "w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" %>
-              </div>
-              <%= f.label :remember_me, class: "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+      <h5 class="text-xl mb-4 font-medium text-gray-900 dark:text-white">Sign In</h5>
+      <div>
+        <%= f.label :username, class: "label label-text" %>
+        <%= f.text_field :username, autofocus: true, required: true, autocomplete: "username", class: "input input-bordered w-full max-w-xs", placeholder: "Username", autocapitalize: "none" %>
+      </div>
+      <div>
+        <%= f.label :password, class: "label label-text" %>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", autocapitalize: "none", required: true, class: "input input-bordered w-full max-w-xs" %>
+      </div>
+      <div class="flex mt-2 items-start">
+        <% if devise_mapping.rememberable? %>
+          <div class="flex items-start">
+            <div class="flex items-center h-5">
+              <%= f.check_box :remember_me, class: "w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" %>
             </div>
-          <% end %>
-          <%= link_to "Lost Password?", new_password_path(resource_name), class: "ml-auto text-sm link link-error" %>
-        </div>
-        <%= f.submit "Log in to your account", class: "btn btn-primary btn-block" %>
-        <div class="text-sm font-medium text-gray-500 dark:text-gray-300 mt-2">
-          Not registered? <%= link_to "Create account", new_user_registration_path, class: "link link-accent" %>
-        </div>
-      </form>
+            <%= f.label :remember_me, class: "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+          </div>
+        <% end %>
+        <%= link_to "Lost Password?", new_password_path(resource_name), class: "ml-auto text-sm link link-accent" %>
+      </div>
+      <%= f.submit "Log in to your account", class: "btn btn-primary btn-block" %>
+      <div class="text-sm font-medium text-gray-500 dark:text-gray-300 mt-2">
+        Not registered? <%= link_to "Create account", new_user_registration_path, class: "link link-accent" %>
+      </div>
     <% end %>
   <% end %>
 </div>

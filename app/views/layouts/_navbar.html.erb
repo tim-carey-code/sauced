@@ -1,13 +1,13 @@
 <% if turbo_native_app? %>
 <% else %>
-  <div class="navbar bg-base-100">
-    <div class="navbar-start">
+  <div class="navbar bg-base-100 justify-between items-center">
+    <div class="flex justify-start items-center">
       <%= link_to root_path do %>
         <%= image_tag "sauced_logo.png", class: "h-8 ml-3 mr-3 inline", alt: "Sauced Logo" %>
         <span class="btn btn-ghost normal-case text-xl">Sauced</span>
       <% end %>
     </div>
-    <div class="navbar-center lg:flex">
+    <div class="mr-32">
       <ul class="menu menu-horizontal px-1">
         <li><%= link_to "Home", root_path, class: "text-lg #{active_link_class(feed_items_path)}" %></li>
         <li><%= link_to "Sauces", hotsauces_path, class: "text-lg #{active_link_class(hotsauces_path)}" %></li>
@@ -16,8 +16,8 @@
         <% end %>
       </ul>
     </div>
-    <% if user_signed_in? %>
-      <div class="navbar-end">
+    <div class="flex justify-end items-center">
+      <% if user_signed_in? %>
         <div class="dropdown dropdown-end">
           <label tabindex="0" class="btn btn-ghost btn-circle avatar">
             <div class="w-10 rounded-full">
@@ -36,7 +36,7 @@
             <li><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete } %></li>
           </ul>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 <% end %>
