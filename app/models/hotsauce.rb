@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: hotsauces
@@ -12,7 +14,7 @@
 #
 class Hotsauce < ApplicationRecord
   validates :name, :description, presence: true
-  validates :description, length: { maximum: 75 }
+  validates :description, length: { maximum: 300 }
 
   has_one_attached :sauce_bottle_image do |attachable|
     attachable.variant :card, resize_to_limit: [300, 400]
@@ -27,7 +29,7 @@ class Hotsauce < ApplicationRecord
   def rating
     ratings = checkins.map(&:rating)
     if ratings.count < 1
-      "No ratings yet"
+      'No ratings yet'
     else
       (ratings.sum / ratings.count).to_f.floor(1)
     end
@@ -35,10 +37,6 @@ class Hotsauce < ApplicationRecord
 
   def has_rating?
     ratings = checkins.map(&:rating)
-    if ratings.count < 1
-      false
-    else
-      true
-    end
+    !(ratings.count < 1)
   end
 end

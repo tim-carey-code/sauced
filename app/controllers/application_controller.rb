@@ -1,4 +1,7 @@
+# fronzen_string_literal: true
+
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   helper_method :turbo_frame_request?
@@ -11,6 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :avatar])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[username email avatar])
   end
 end

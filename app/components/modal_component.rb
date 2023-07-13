@@ -1,12 +1,13 @@
-class ModalComponent < ViewComponent::Base
-  attr_reader :resource
+# frozen_string_literal: true
 
-  def initialize(modal_title:, primary_button_name:, modal_body:, btn_style:, btn_method:, resource:)
+class ModalComponent < ViewComponent::Base
+  def initialize(modal_title:, modal_id:, btn_path: nil, btn_name: nil, btn_method: nil, btn_classes: nil)
+    super()
     @modal_title = modal_title
-    @primary_button_name = primary_button_name
-    @modal_body = modal_body
-    @btn_style = btn_style
+    @modal_id = modal_id
+    @btn_path = btn_path
+    @btn_name = btn_name
     @btn_method = btn_method
-    @resource = resource
+    @btn_classes = btn_classes
   end
 end

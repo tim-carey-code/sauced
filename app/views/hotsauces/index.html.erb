@@ -1,50 +1,36 @@
 <% content_for :title do %>
   Hot Sauces
 <% end %>
-
 <% if !turbo_native_app? %>
-  <h4 class="display-4 text-center text-light">Hot Sauces</h4>
+  <h4 class="text-5xl mt-4 text-white text-center">Hot Sauces</h4>
 <% end %>
-
-<div class="d-grid gap-2 my-3">
-  <%= link_to "New hotsauce", new_hotsauce_path, class: "btn btn-primary" %>
+<div class="flex justify-center items-center w-fit mb-4 mx-auto">
+  <%= link_to "New Hotsauce", new_hotsauce_path, class: "btn btn-primary mt-4 mb-4"%>
 </div>
-
-<div id="hotsauces">
-  <ul class="list-group list-group-flush">
-    <% @hotsauces.each do |hotsauce| %>
-      <%= link_to hotsauce_path(hotsauce), class: "list-group-item list-group-item-action" do %>
-
-        <div class="row">
-          <div class="col-4">
-            <% if hotsauce.sauce_bottle_image.attached? %>
-              <%= image_tag hotsauce.sauce_bottle_image.variant(:medium), class: "img-thumbnail" %>
-            <% else %>
-              <%= image_tag "ketchup_bottle.png", class: "img-thumbnail" %>
-            <% end %>
-          </div>
-
-          <div class="col-6">
-            <h5 class="card-title text-dark"><%= hotsauce.name %></h5>
-            <span class="badge bg-primary"><%= hotsauce.category %></span>
-            <br />
-            Rating: <%= hotsauce.rating %>
-            <br />
-            <% if hotsauce.has_rating? %>
-              <p>
-                <sl-rating readonly label="Rating" precision="0.5" value="<%= hotsauce.rating %>"></sl-rating>
-              </p>
-            <% else %>
-              <p>
-                <%= "No stars..." %>
-              </p>
-            <% end %>
-            Checkins: <%= hotsauce.checkins.count %>
-          </div>
-          <br />
-        </div>
-
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+  <% @hotsauces.each do |hotsauce| %>
+    <%= link_to hotsauce_path(hotsauce), class: "flex grow" do %>
+      <%= render CardComponent.new(img_src: hotsauce.sauce_bottle_image.attached? ? hotsauce.sauce_bottle_image : "ketchup_bottle.png", img_alt: hotsauce.name, container_classes: "w-[390px] mb-4") do %>
+        <h5 class="card-title"><%= hotsauce.name %></h5>
+        <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300"><%= hotsauce.category %></span>
+        <br />
+        Rating: <%= hotsauce.rating %>
+        <br />
+        <% if hotsauce.has_rating? %>
+          <p>
+            <sl-rating readonly label="Rating" precision="0.5" value="<%= hotsauce.rating %>"></sl-rating>
+          </p>
+        <% else %>
+          <p>
+            <%= "No stars..." %>
+          </p>
+        <% end %>
+        Checkins: <%= hotsauce.checkins.count %>
+        <br />
       <% end %>
     <% end %>
-  </ul>
+  <% end %>
+</div>
+<div class="mb-4">
+  <%== pagy_nav @pagy if @pagy.pages > 1 %>
 </div>

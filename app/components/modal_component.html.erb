@@ -1,18 +1,14 @@
-<div class="modal fade text-black" id="<%= dom_id(resource) %>" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="modalLabel"><%= @modal_title %></h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <%= @modal_body %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <%= button_to @primary_button_name, @resource, method: @btn_method, class: "btn btn-#{@btn_style}" %>
-      </div>
+<dialog id="<%= @modal_id %>" class="modal">
+  <form method="dialog" class="modal-box">
+    <h3 class="font-bold text-lg"><%= @modal_title %></h3>
+    <div class="flex items-center">
+      <%= content %>
     </div>
-  </div>
-</div>
-
+    <div class="modal-action">
+      <button class="btn">Close</button>
+      <% if @btn_name.present? %>
+        <%= link_to @btn_name, @btn_path, data: { turbo_method: @btn_method }, class: @btn_classes %>
+      <% end %>
+    </div>
+  </form>
+</dialog>

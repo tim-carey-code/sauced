@@ -1,5 +1,3 @@
-@import "bootstrap";
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
 @import "./actiontext.css";
 
 body {
@@ -14,92 +12,24 @@ body {
   width: 100%;
 }
 
-.avatar {
-  border-radius: 100%;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
 .dropdown-menu {
   top: 100%;
   left: -48px !important;
 }
 
 .bg-peppers {
-  background-image: url(asset_path('peppers.jpeg'));
-  background-size: cover;
+  background-image: url(asset_path("peppers.jpeg"));
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .bg-peppers-2 {
-  height: 200px;
+  height: 338px !important;
   width: 100%;
-  object-fit: cover;
-  opacity: .25
-}
-
-.btn-primary {
-  background-color: maroon;
-  border-color: maroon;
-}
-
-.btn-outline-light-custom:hover {
-  background: #d9d9d9;
-  color: black !important;
-}
-
-.card-title {
-  border-color: black;
-}
-
-.card {
-  border-color: black;
 }
 
 .bg-flames {
-  background-image: url(asset_path('flames.jpeg'));
+  background-image: url(asset_path("flames.jpeg"));
   background-size: cover;
   background-position: center;
-}
-
-.bg-100 {
-  background-size: 100%;
-}
-
-.bg-75 {
-  background-size: 75%;
-}
-
-.bg-50 {
-  background-size: 50%;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 100px);
-  justify-content: center;
-  grid-template-rows: auto;
-}
-
-.edit-profile {
-  background-color: black;
-  color: white;
-  border-radius: 100%;
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  left: 70px;
-  bottom: 0;
-}
-
-.pencil-icon {
-  position: absolute;
-  left: 13px;
-  bottom: 6px;
-  font-size: 25px;
-}
-
-.sauced-text-logo {
-  filter: grayscale(100%) invert(100%);
 }

@@ -1,22 +1,17 @@
-<div class="row">
-  <div class="col">
-    <div class="card border text-light border-white border-2 m-2">
-      <div class="card-body bg-peppers">
-        <p class="lead">
-          <%= link_to user_profile_path(feed_item.user.id) do %>
-            <%= feed_item.user.username %>
-          <% end %>
-          added <%= link_to feed_item.feedable.hotsauce.name, hotsauce_path(feed_item.feedable.hotsauce) %> to their favorites
-        </p>
-        <% if feed_item.feedable.hotsauce.sauce_bottle_image.attached? %>
-          <%= image_tag feed_item.feedable.hotsauce.sauce_bottle_image.variant(:medium), class: "img-fluid" %>
-        <% else %>
-          <%= image_tag "ketchup_bottle.png", class: "img-fluid" %>
-        <% end %>
-        <small>
-          <%= time_ago_in_words(feed_item.created_at) %> ago
-        </small>
-      </div>
-    </div>
+<%= render CardComponent.new(container_classes: "w-[40%] mb-4 border-2 border-white", card_body_classes: "rounded-xl bg-peppers") do %>
+  <p>
+    <%= link_to user_profile_path(feed_item.user), class: "link-primary" do %>
+      <%= feed_item.user.username %>
+    <% end %>
+    added <%= link_to feed_item.feedable.hotsauce.name, hotsauce_path(feed_item.feedable.hotsauce), class: "link-primary" %> to their favorites
+  </p>
+  <div>
+    <% if feed_item.feedable.hotsauce.sauce_bottle_image.attached? %>
+      <%= image_tag feed_item.feedable.hotsauce.sauce_bottle_image, class: "h-auto max-w-xs rounded-lg" %>
+    <% else %>
+      <%= image_tag "ketchup_bottle.png", class: "h-auto max-w-xs rounded-lg" %>
+    <% end %>
   </div>
-</div>
+  <small>
+    <%= time_ago_in_words(feed_item.created_at) %> ago </small>
+<% end %>

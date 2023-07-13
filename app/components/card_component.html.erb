@@ -1,0 +1,13 @@
+<div class="card <%= @container_classes %> bg-base-100 shadow-xl">
+  <% if @img_src.present? %>
+    <figure>
+      <%= image_tag @img_src, alt: @img_alt, class: @img_classes %>
+    </figure>
+  <% end %>
+  <div class="card-body <%= @card_body_classes %>">
+    <% if @title.present? %>
+      <h5 class="text-xl"><%= @title %></h5>
+    <% end %>
+    <%= content %>
+  </div>
+</div>

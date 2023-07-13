@@ -21,7 +21,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :username, :email,  uniqueness: true
+  validates :username, :email, uniqueness: true
 
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_limit: [60, 60]
@@ -32,6 +32,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :hotsauces, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :feed_items, dependent: :destroy
 
   def likes?(checkin)
     checkin.likes.where(user_id: id).any?

@@ -1,56 +1,42 @@
 <% if turbo_native_app? %>
-  
 <% else %>
-
-  <nav class="navbar navbar-dark navbar-expand-lg bg-dark bg-75">
-    <div class="container-fluid">
-      <%= link_to "You've Been Sauced", root_path, class: "navbar-brand fw-semibold" %>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <%= link_to "Sauces", hotsauces_path, class: "nav-link text-light" %>
-          </li>
-        </ul>
-
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <% if user_signed_in? %>
-
-            <li class="nav-item dropdown m-0">
-              <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <%= current_user.username %>
-              </a>
-
-              <ul class="dropdown-menu">
-                <li>
-                  <%= link_to "My Profile", user_profile_path(current_user), class: "dropdown-item" %>
-                </li>
-                <li>
-                  <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
-                </li>
-                <li>
-                  <%= button_to "Sign Out", destroy_user_session_path, data: { turbo: false }, method: :delete, class: "btn-link link-secondary dropdown-item" %>
-                </li>
-              </ul>
-            </li>
-
-          <% else %>
-
-            <li class="nav-item">
-              <%= link_to "Sign In", new_user_session_path, class: "nav-link btn btn-primary" %>
-            </li>
-
-          <% end %>
-        </ul>
-
-
-      </div>
+  <div class="navbar bg-base-100 justify-between items-center">
+    <div class="flex justify-start items-center">
+      <%= link_to root_path do %>
+        <%= image_tag "sauced_logo.png", class: "h-8 ml-3 mr-3 inline", alt: "Sauced Logo" %>
+        <span class="btn btn-ghost normal-case text-xl">Sauced</span>
+      <% end %>
     </div>
-  </nav>
-
+    <div class="mr-32">
+      <ul class="menu menu-horizontal px-1">
+        <li><%= link_to "Home", root_path, class: "text-lg #{active_link_class(feed_items_path)}" %></li>
+        <li><%= link_to "Sauces", hotsauces_path, class: "text-lg #{active_link_class(hotsauces_path)}" %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Profile", user_profile_path(current_user), class: "text-lg #{active_link_class(user_profile_path(current_user))}" %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="flex justify-end items-center">
+      <% if user_signed_in? %>
+        <div class="dropdown dropdown-end">
+          <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+            <div class="w-10 rounded-full">
+              <% if current_user.avatar.attached? %>
+                <%= image_tag current_user.avatar, alt: "#{current_user.username} avatar" %>
+              <% else %>
+                <%= image_tag "ketchup_bottle.png", alt: "Ketchup Bottle Default Avatar" %>
+              <% end %>
+            </div>
+          </label>
+          <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+            <li>
+              <%= link_to "Profile", user_profile_path(current_user), class: "justify-between" %>
+            </li>
+            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete } %></li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <% end %>

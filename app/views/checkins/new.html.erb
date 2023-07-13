@@ -1,28 +1,19 @@
-<h4 class="display-4 text-white text-center">Check into <%= @hotsauce.name %></h4>
-
-<div class="row">
-  <div class="col">
-
-    <div class="card border-white border-2 m-2">
-      <div class="card-body">
-        <%= form_with(model: @checkin) do |f| %>
-          <div class="my-2" data-controller="rating">
-            <sl-rating id="stars" label="Rating" precision="0.5"></sl-rating>
-            <%= f.label :rating, class: "form-label" %>
-            <%= f.hidden_field :rating, value: "0", readonly: true, class: "form-control rating-input"%>
-          </div>
-
-          <%= f.text_field :location, placeholder: "Location (optional)", class: "form-control" %>
-
-          <%= f.label :review, "Review (optional)", class: "form-label my-2" %>
-          <%= f.rich_text_area :review %>
-
-          <div class="d-grid gap-2 my-3">
-            <%= f.submit "Check in", class: "btn btn-primary" %>
-          </div>
-        <% end %>
-      </div>
+<%= content_for :title do %>
+  Check into <%= @hotsauce.name %>
+<% end %>
+<h4 class="text-3xl my-4 text-white text-center">Check into <%= @hotsauce.name %></h4>
+<%= render CardComponent.new(container_classes: "w-full bg-white text-black") do %>
+  <%= form_with(model: @checkin) do |f| %>
+    <div class="my-2" data-controller="rating">
+      <sl-rating id="stars" label="Rating" precision="0.5"></sl-rating>
+      <%= f.label :rating, class: "form-label" %>
+      <%= f.hidden_field :rating, value: "0", readonly: true, class: "form-control rating-input"%>
     </div>
-
-  </div>
-</div>
+    <%= f.text_field :location, placeholder: "Location (optional)", class: "form-control" %>
+    <%= f.label :review, "Review (optional)", class: "form-label my-2" %>
+    <%= f.rich_text_area :review, class: "" %>
+    <div class="d-grid gap-2 my-3">
+      <%= f.submit "Check in", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="vh-100 bg-flames">
+<html data-theme="synthwave" class="bg-flames h-screen">
   <head>
     <title>
       <% if content_for? :title %>
@@ -11,16 +11,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.1.0/dist/themes/light.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-  <body class="vh-100 bg-flames">
+  <body class="">
     <%= render "layouts/navbar" %>
     <%= render "layouts/alerts" %>
-    <main class="container">
-      <%= yield %>
+    <main class="container mx-auto px-10"> <%= yield %>
     </main>
   </body>
 </html>
