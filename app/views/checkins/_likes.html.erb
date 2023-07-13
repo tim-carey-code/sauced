@@ -1,14 +1,14 @@
 <%= turbo_frame_tag dom_id(checkin) do %>
   <% if user_signed_in? && current_user.likes?(checkin) %>
     <%= link_to checkin_like_path(checkin),  data: { turbo_method: :delete }, class: "text-decoration-none" do %>
-      <i class="bi bi-hand-thumbs-up-fill text-3xl"></i>
+      <i class="bi bi-hand-thumbs-up-fill text-3xl text-white"></i>
     <% end %>
   <% else %>
     <%= link_to checkin_like_path(checkin), data: { turbo_method: :post }, class: "text-decoration-none" do %>
-      <i class="bi bi-hand-thumbs-up text-3xl inline"></i>
+      <i class="bi bi-hand-thumbs-up text-3xl inline text-white"></i>
     <% end %>
   <% end %>
-  <%= link_to "#", onclick: "likesModal_#{dom_id(checkin)}.showModal()", class: "link-primary" do %>
+  <%= link_to "#", onclick: "likesModal_#{dom_id(checkin)}.showModal()", class: "link-secondary" do %>
     <%= checkin.likes.count %> likes
   <% end %>
 <% end %>

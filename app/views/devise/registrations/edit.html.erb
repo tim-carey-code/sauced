@@ -23,7 +23,7 @@
       <%= render TextInputComponent.new(label: "Current Password") do %>
         <%= form.password_field :current_password, autocomplete: "current-password", class: "text-input-bordered" %>
       <% end %>
-      <%= render FileInputComponent.new(label: "Upload an avatar(not required)") do %>
+      <%= render FileInputComponent.new(label: "Change Your Avatar") do %>
         <%= form.file_field :avatar, class: "file-field-bordered mb-4" %>
       <% end %>
       <div class="actions">
