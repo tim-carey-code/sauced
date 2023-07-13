@@ -1,7 +1,7 @@
 <%= content_for :title do %>
   <%= @hotsauce.name %>
 <% end %>
-<div class="flex text-center text-white flex-column justify-center items-center">
+<div class="flex text-center text-white flex-col h-screen justify-center items-center">
   <%= render CardComponent.new(container_classes: "border-2 w-96 my-10 border-white bg-peppers") do %>
     <% if @hotsauce.sauce_bottle_image.attached? %>
       <%= image_tag @hotsauce.sauce_bottle_image.variant(:medium), class: "card-img-top" %>
@@ -31,13 +31,13 @@
       <% if is_favorited?(user: current_user, hotsauce: @hotsauce) %>
         <%= link_to "Remove from favorites", favorite_path(favorite_for(user: current_user, hotsauce: @hotsauce)), class: "btn btn-warning", data: { turbo_method: :delete } %>
       <% else %>
-        <%= link_to "Add to favorites", favorites_path(hotsauce_id: @hotsauce.id), class: "btn btn-success", data: { turbo_method: :post } %>
+        <%= link_to "Add to favorites", favorites_path(hotsauce_id: @hotsauce.id), class: "btn btn-primary", data: { turbo_method: :post } %>
       <% end %>
-      <%= link_to "Edit this hotsauce", edit_hotsauce_path(@hotsauce), class: "btn btn-primary" %>
-      <%= link_to "#", onclick: "deleteHotsauceModal.showModal()", class: "btn btn-error hover:bg-[#9e2b3a]" do %>
+      <%= link_to "Edit this hotsauce", edit_hotsauce_path(@hotsauce), class: "btn btn-secondary" %>
+      <%= link_to "#", onclick: "deleteHotsauceModal.showModal()", class: "btn btn-error hover:bg-[#c7384b] text-black" do %>
         <p>Delete Hotsauce</p>
       <% end %>
-      <%= render ModalComponent.new(modal_title: "Are you sure you want to delete this hotsauce?", modal_id: "deleteHotsauceModal", btn_path: hotsauce_path(@hotsauce), btn_name: "Delete #{@hotsauce.name}", btn_method: :delete, btn_classes: "btn btn-error") do %>
+      <%= render ModalComponent.new(modal_title: "Are you sure you want to delete this hotsauce?", modal_id: "deleteHotsauceModal", btn_path: hotsauce_path(@hotsauce), btn_name: "Delete #{@hotsauce.name}", btn_method: :delete, btn_classes: "btn btn-error hover:bg-[#c7384b] text-black") do %>
         <p class="inline py-4">Once you delete this hotsauce it will be gone forever!</p>
       <% end %>
     </div>

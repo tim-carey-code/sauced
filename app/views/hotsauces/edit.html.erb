@@ -1,19 +1,10 @@
 <%= content_for :title do %>
   Edit
 <% end %>
-
-<div class="d-flex text-center text-light justify-content-center align-items-center">
-  <div class="card border border-white border-2 mb-2" style="width: 18rem;">
-    <div class="card-body bg-peppers">
-      <h5 class="card-title fs-1">Editing Sauce</h5>
-      <%= render "form", hotsauce: @hotsauce %>
-
-      <br>
-
-      <div class="text-center">
-        <%= link_to "Show this hotsauce", @hotsauce, class: "btn btn-secondary my-2" %>
-        <%= link_to "Back to hotsauces", hotsauces_path, class: "btn btn-secondary" %>
-      </div>
-    </div>
-  </div>
+<div class="flex flex-col text-center text-white justify-center items-center h-screen">
+  <%= render CardComponent.new(container_classes: "bg-peppers border-2 border-white w-96 my-10", title: "Editing #{@hotsauce.name.titleize}") do %>
+    <%= render "form", hotsauce: @hotsauce %>
+    <%= link_to "Show this hotsauce", @hotsauce, class: "btn btn-secondary my-2" %>
+    <%= link_to "Back to hotsauces", hotsauces_path, class: "btn btn-accent" %>
+  <% end %>
 </div>

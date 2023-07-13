@@ -14,7 +14,7 @@
 #
 class Hotsauce < ApplicationRecord
   validates :name, :description, presence: true
-  validates :description, length: { maximum: 75 }
+  validates :description, length: { maximum: 300 }
 
   has_one_attached :sauce_bottle_image do |attachable|
     attachable.variant :card, resize_to_limit: [300, 400]

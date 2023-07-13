@@ -1,31 +1,35 @@
-<div class="card text-bg-dark row">
-  <%= image_tag "bg_peppers_2.jpg", class: "img-fluid bg-peppers-2" %>
-  <div class="text-center card-img-overlay">
-    <div class="grid">
-      <div class="user-stats">
-        <p>Check-ins</p>
-        <strong><%= @user.checkins.count %></strong>
-      </div>
-      <div>
-        <p><%= @user.username %></p>
-        <%= image_tag @user.avatar.variant(:profile_card), class: "rounded-circle" %>
-        <% if @user == current_user %>
-          <%= link_to edit_user_registration_path do %>
-            <div class="position-relative">
-              <div class="edit-profile">
-                <i class="pencil-icon bi bi-pencil"></i>
-              </div>
+<div class="flex justify-center items-center">
+  <%= render CardComponent.new(container_classes: "w-[80%] mt-4 image-full", img_src: "bg_peppers_2.jpg", img_alt: "Peppers Background", img_classes: "bg-peppers-2") do %>
+    <%# image_tag "bg_peppers_2.jpg", class: "img-fluid bg-peppers-2" %>
+    <div class="text-center card-img-overlay">
+      <div class="flex justify-center items-center flex-col">
+        <div class="flex justify-center items-center gap-4">
+          <div class="flex flex-col justify-center items-center">
+            <span>Checkins</span>
+            <span><%= @user.checkins.count %></span>
+          </div>
+          <div class="flex flex-col justify-center items-center">
+            <span>Favorites</span>
+            <span><%= @user.favorites.count %></span>
+          </div>
+        </div>
+        <div class="mt-4 flex justify-center items-center flex-col">
+          <p class="mb-2"><%= @user.username %></p>
+          <%= image_tag @user.avatar.variant(:profile_card), class: "rounded-full border-2 border-[#ff0000]" %>
+          <% if @user == current_user %>
+            <div class="edit-profile">
+              <%= render TooltipComponent.new(text: "Edit your profile") do %>
+                <%= link_to edit_user_registration_path do %>
+                  <i class="pencil-icon bi bi-pencil"></i>
+                <% end %>
+              <% end %>
             </div>
           <% end %>
-        <% end %>
+        </div>
       </div>
-      <div class="user-stats">
-        <p>Favorites</p>
-        <strong><%= @user.favorites.count %></strong>
+      <div>
+        <small class="text-center">Joined <%= pretty_date(@user.created_at) %></small>
       </div>
     </div>
-    <div>
-      <small class="text-center">Joined <%= pretty_date(@user.created_at) %></small>
-    </div>
-  </div>
+  <% end %>
 </div>

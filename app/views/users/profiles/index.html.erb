@@ -1,20 +1,16 @@
 <%= render "users/profiles/user_card", user: @user %>
 <% content_for :title do %>
-  <%= @user.username %> Favorites
+  <%= @user.username %> Profile
 <% end %>
-
 <% if !turbo_native_app? %>
   <h4 class="display-4 text-center text-light">Favorites</h4>
 <% end %>
-
 <% @user.favorites.map do |favorite| %>
   <div class="row">
     <div class="col">
-
       <div class="card border text-light border-white border-2 m-2">
         <%= link_to hotsauce_path(favorite.hotsauce) do %>
           <div class="card-body bg-peppers">
-
             <div class="row">
               <div class="col-4">
                 <% if favorite.hotsauce.sauce_bottle_image.attached? %>
@@ -23,7 +19,6 @@
                   <%= image_tag "ketchup_bottle.png", class: "img-thumbnail" %>
                 <% end %>
               </div>
-
               <div class="col-6">
                 <h5 class="card-title fs-1"><%= favorite.hotsauce.name %></h5>
                 <span class="badge bg-primary"><%= favorite.hotsauce.category %></span>
@@ -39,7 +34,6 @@
           </div>
         <% end %>
       </div>
-
     </div>
   </div>
 <% end %>
