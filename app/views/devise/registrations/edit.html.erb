@@ -1,7 +1,7 @@
 <% content_for :title do %>
   Profile
 <% end %>
-<div class="text-center flex flex-col justify-center items-center h-screen">
+<div class="text-center flex flex-col justify-center items-center mt-10 mb-10">
   <%= render CardComponent.new(container_classes: "bg-peppers w-96 border-2 border-white", title: "Edit #{resource_name.to_s.humanize}") do %>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), remote: true) do |form| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -36,6 +36,7 @@
       <i class="bi bi-radioactive"></i>
       <span>Cancel my account</span>
     <% end %>
+    <%= link_to "View my profile", user_profile_path(current_user), class: "link link-accent" %>
     <%= link_to "Back", :back, class: "btn btn-secondary my-2" %>
   <% end %>
 </div>

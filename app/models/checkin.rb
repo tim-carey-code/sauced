@@ -11,9 +11,9 @@
 #  user_id     :integer          not null
 #
 class Checkin < ApplicationRecord
-  validates :rating, presence: true
-  validates :rating, inclusion: { in: [ 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5 ], message: "%{value} is not a valid rating" }
-  
+  #  validates :rating, presence: true
+  #  validates :rating, inclusion: { in: [ 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5 ], message: "%{value} is not a valid rating" }
+
   has_many :likes, dependent: :destroy
   belongs_to :hotsauce
   belongs_to :user
